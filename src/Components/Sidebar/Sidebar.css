@@ -1,0 +1,86 @@
+.sidebar{
+    position: fixed;
+    width: 280px;
+    height: 100vh;
+    padding-top: 50px;
+}
+.sidebar-top{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.image{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+}
+.greeting{
+    margin-left: 5px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22.7273px;
+    color: #000000;
+}
+.links{
+    margin-top: 120px;
+    margin-left: 30px;
+}
+.links nav{
+    list-style: none;
+}
+.links nav li a{
+    margin-top: 20px;
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1b232d5e;
+    transition: all 0.3s;
+}
+.links nav li a:hover{
+    background: #FAF1F3;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 3px solid #B11226;
+    color: #B11226;
+    transition: all 0.3s;
+}
+.active{
+    background: #FAF1F3;
+    border-radius: 10px 0px 0px 10px;
+    border-right: 3px solid #B11226;
+    color: #B11226;
+}
+.active p, .active .sideicon .sideicon-inner svg{
+    color: #B11226;
+}
+.sideicon-inner svg{
+    font-size: 20px;
+}
+.address-name{
+    margin-left: 14px;
+}
+.log-out{
+    margin-left: 30px;
+    margin-top: 300px;
+}
+.log-out a{
+    padding: 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #D40000;
+}
+.sideicon-logout svg{
+    color: black;
+}

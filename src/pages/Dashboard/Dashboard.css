@@ -1,0 +1,268 @@
+.dashboard-body{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.dashboard-left{
+    padding: 20px;
+    /* background-color: aqua; */
+    width: 48%;
+}
+.dashboard-right{
+    padding: 20px;
+    width: 48%;
+    background: #FFF7F7;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
+    border-radius: 5px;
+}
+.kyc-status{
+    width: 100%;
+    background-color: #F3F3F3;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 2px;
+}
+.kyc-status-left{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+}
+.kyc{
+    color: rgba(0, 0, 0, 0.58);
+}
+.kyc-body{
+    color: #000000;
+}
+.kyc-status-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(245, 101, 110, 0.19);
+    border-radius: 10px;
+}
+.kyc-status-right svg{
+    font-size: 25px;
+    color: #D86A78;
+}
+.bank-card{
+    margin-top: 30px;
+    padding: 30px;
+    background-image: url(../../assets/image/card.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 280px;
+    border-radius: 30px;
+}
+.card-top{
+    display: flex;
+    justify-content: space-between;
+}
+.amount{
+    margin-top: 50px;
+}
+.amount p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    color: #EFEFF1;
+}
+.card-name{
+    margin-top: 40px;
+}
+.card-name p{
+   font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    color: #EFEFF1;
+}
+.my-account{
+    margin-top: 20px;
+}
+.my-account-header{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 27px;
+    color: #1B232D;
+}
+.account-type{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.naira-account{
+    background: #FFFFFF;
+    box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314);
+    border-radius: 22px;
+    width: 40%;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+.dollar-account{
+    background: #FFFFFF;
+    box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314);
+    border-radius: 22px;
+    width: 40%;
+    display: flex;
+    padding: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+.account-progressbar{
+    height: 130px;
+    width: 130px;    
+}
+.account{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    text-align: center;
+    color: #1B232D;
+}
+.account-amount{
+    margin-top: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.1609px;
+    text-align: center;
+    color: #8C9495;
+}
+.account-button{
+    margin-top: 30px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background: #B11226;
+    border-radius: 19.2957px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.1609px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.my-saving,.single-transaction{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.single-transaction{
+    margin-top: 30px;
+}
+.saving-left, .transaction-history-left{
+    display: flex;
+    align-items: center;
+}
+.saving-icon, .transaction-icon{
+    width: 60px;
+    height: 60px;
+    background-color: #C9CBCE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+}
+.saving-icon svg{
+    font-size: 30px;
+}
+.saving-text{
+    margin-left: 15px;
+}
+.saving-header{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: #1B232D;
+}
+.saving-amount{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    color: #85898F;
+}
+.saving-right svg{
+    font-size: 35px;
+}
+.transaction-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.transaction{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+}
+.transaction-right{
+    display: flex;
+
+}
+.categories, .date{
+    display: flex;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.63);
+    border-radius: 8px;
+}
+.date{
+    margin-left: 20px;
+}
+.categories p, .date p{
+    margin-left: 15px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000000;
+}
+.transaction-icon{
+    background-color: rgba(255, 149, 155, 0.19);
+}
+.transaction-icon svg{
+    font-size: 30px;
+    color: #B11226;
+}
+.transaction-history-text{
+    margin-left: 20px;
+}
+.transaction-history-name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #000000;
+}
+.transaction-amount{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+}
+.transaction-date{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.7);
+}
