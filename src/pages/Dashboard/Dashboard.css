@@ -69,38 +69,6 @@
 }
 .bank-card{
     margin-top: 30px;
-    padding: 30px;
-    background-image: url(../../assets/image/card.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 230px;
-    border-radius: 30px;
-}
-.card-top{
-    display: flex;
-    justify-content: space-between;
-}
-.amount{
-    margin-top: 30px;
-}
-.amount p{
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 35px;
-    color: #EFEFF1;
-}
-.card-name{
-    margin-top: 20px;
-}
-.card-name p{
-   font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    color: #EFEFF1;
 }
 .my-account{
     margin-top: 20px;
@@ -252,12 +220,9 @@
     font-size: 16px;
     color: #000000;
 }
-.transaction-icon{
-    background-color: rgba(255, 149, 155, 0.19);
-}
-.transaction-icon svg{
-    font-size: 30px;
-    color: #B11226;
+.transaction-icon img{
+    width: 60px;
+    height: 60px;
 }
 .transaction-history-text{
     margin-left: 20px;

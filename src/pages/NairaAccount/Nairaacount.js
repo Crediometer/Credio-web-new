@@ -70,15 +70,17 @@ const Nairaacount = () => {
                         <div className="transfer-action">
                             <p className="account-action-text">Transfers</p>
                             <div className="account-action-inner">
-                                <div className="operation action">
-                                    <div className="actionicon">
-                                        <BiTransfer/>
+                                <Link to='/transfer'>
+                                    <div className="operation action">
+                                        <div className="actionicon">
+                                            <BiTransfer/>
+                                        </div>
+                                        <div className="action-details">
+                                            <p className="detail-title">Transfer between Accounts </p>
+                                            <p className="detail-word">Transferring between your accounts</p>
+                                        </div>
                                     </div>
-                                    <div className="action-details">
-                                        <p className="detail-title">Transfer between Accounts </p>
-                                        <p className="detail-word">Transferring between your accounts</p>
-                                    </div>
-                                </div>
+                                </Link>
                                 <div className="account-details action">
                                     <div className="actionicon">
                                         <FaCreditCard/>

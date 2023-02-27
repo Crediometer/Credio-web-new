@@ -137,6 +137,7 @@ const Login = (props) => {
                                     <input
                                         type="tel"
                                         value={fingerprint}
+                                        hidden
                                     >
                                     </input>
                                 </div>

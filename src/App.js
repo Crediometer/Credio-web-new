@@ -9,6 +9,8 @@ import '../src/Components/InputStyle/Inputfield.css'
 import Nairaacount from './pages/NairaAccount/Nairaacount';
 import Transaction from './pages/Transaction/Transaction';
 import Receipt from './pages/Transaction/Receipt';
+import Accounttransfer from './pages/Accounttransfer/Accounttransfer';
+import Confirmtransfer from './pages/Accounttransfer/Confirmtransfer';
 function App() {
   return (
     <Router>
@@ -23,6 +25,8 @@ function App() {
             <Route path='/nairaaccount' element={<Nairaacount/>}/>
             <Route path='/transactions' element={<Transaction/>}/>
             <Route path='/receipt' element={<Receipt/>}/>
+            <Route path='/transfer' element={<Accounttransfer/>}/>
+            <Route path='/confirm' element={<Confirmtransfer/>}/>
           </Routes>
         </div>
       </Provider>

@@ -89,7 +89,7 @@
         font-size: 20px;
     }  
     .account-top p{
-        font-size: 30px;
+        font-size: 25px;
     }
     .account-action-inner{
         display: grid;
@@ -104,7 +104,7 @@
         row-gap: 50px; */
     }
     .account-top p{
-        font-size: 25px;
+        font-size: 20px;
     }
     .detail-title{
         font-size: 18px;

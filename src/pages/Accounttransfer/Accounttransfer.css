@@ -1,0 +1,104 @@
+.account-card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.account-card-inner{
+    width: 50%;
+}
+/* .select-bank select{
+
+} */
+.transfer-form{
+    margin-top: 67px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.transfer-form form{
+    width: 80%;
+}
+.transfer-form-inner{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 80px 80px 80px;
+    grid-template-areas:
+        'select comment'
+        'accnumber comment'
+        'amount saveben'
+    ;
+    grid-gap: 20px;
+}
+.select-bank{
+    width: 100%;
+    grid-area: select;
+}
+.account-number{
+    width: 100%;
+    grid-area: accnumber;
+}
+.transfer-amount{
+    width: 100%;
+    grid-area: amount;
+}
+.transfer-comment{
+    width: 100%;
+    grid-area: comment;
+}
+.transfer-beneficiary{
+    width: 100%;
+    grid-area: saveben;
+}
+.transferfield, .select-bank select, .textfield{
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    background: #DBE3E3;
+    border-radius: 10px;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #1B232D;
+}
+.textfield{
+    height: 170px;
+}
+.transfer-submit{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+.transfer-submit button{
+    width: 50%;
+    height: 70px;
+    background: #B11226;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.160784);
+    border-radius: 10px;
+    border: none;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 19px;
+    color: #FFFFFF;
+}
+@media (Max-width:600px) {
+    .account-card-inner{
+        width: 90%;
+    }
+    .transfer-form{
+        margin-top: 30px ;
+    }
+    .transfer-form-inner{
+        display: block;
+    }
+    .transfer-form form{
+        width: 90%;
+    }
+    .transferfield, .select-bank select, .textfield{
+        margin-top: 20px;
+    }
+}

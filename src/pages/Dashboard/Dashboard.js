@@ -3,8 +3,8 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import {HiOutlineDocumentPlus} from 'react-icons/hi2';
 import {SiMoleculer} from 'react-icons/si'
 import {FiArrowUpRight} from 'react-icons/fi'
-import mastercard from '../../assets/image/mastercard.png';
-import chip from '../../assets/image/cardchip.png';
+import credit from '../../assets/image/credit.png';
+import debit from '../../assets/image/debit.png';
 import {CircularProgressbar} from 'react-circular-progressbar'
 import 'react-circular-progressbar/dist/styles.css'
 import './Dashboard.css';
@@ -12,6 +12,7 @@ import { FaBars, FaChevronRight, FaFilter } from "react-icons/fa";
 import { BsCalendar3 } from "react-icons/bs";
 import { IoNotifications } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import Mastercard from "../../Components/Mastercard/Mastercard";
 const Dashboard = () => {
     const score = 66;
     const score2 = 39
@@ -46,20 +47,7 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <div className="bank-card">
-                            <div className="card-top">
-                                <div className="master-card">
-                                    <img src={mastercard}></img>
-                                </div>
-                                <div className="card-chip">
-                                    <img src={chip}></img>
-                                </div>
-                            </div>
-                            <div className="amount">
-                                <p>₦ 1.250,69</p>
-                            </div>
-                            <div className="card-name">
-                                <p>Micheal</p>
-                            </div>
+                            <Mastercard/>
                         </div>
                         <div className="my-account">
                             <p className="my-account-header">My Accounts</p>
@@ -157,7 +145,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={credit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>
@@ -171,7 +159,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={debit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>
@@ -185,7 +173,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={debit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>
@@ -199,7 +187,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={credit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>
@@ -213,7 +201,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={credit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>
@@ -227,7 +215,7 @@ const Dashboard = () => {
                             <div className="single-transaction">
                                 <div className="transaction-history-left">
                                     <div className="transaction-icon">
-                                        <FiArrowUpRight/>
+                                        <img src={credit}></img>
                                     </div>
                                     <div className="transaction-history-text">
                                         <p className="transaction-history-name">Ayodabo Blessing Odunayo//0164332950</p>

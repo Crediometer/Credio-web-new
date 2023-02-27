@@ -1,0 +1,35 @@
+.mastercard{
+    margin-top: 30px;
+    padding: 30px;
+    background-image: url(../../assets/image/card.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 230px;
+    border-radius: 30px;
+}
+.card-top{
+    display: flex;
+    justify-content: space-between;
+}
+.amount{
+    margin-top: 30px;
+}
+.amount p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    color: #EFEFF1;
+}
+.card-name{
+    margin-top: 20px;
+}
+.card-name p{
+   font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    color: #EFEFF1;
+}
