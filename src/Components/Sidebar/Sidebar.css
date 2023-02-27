@@ -3,6 +3,7 @@
     width: 280px;
     height: 100vh;
     padding-top: 50px;
+    background-color: #FFF9F9;
 }
 .sidebar-top{
     width: 100%;
@@ -83,4 +84,14 @@
 }
 .sideicon-logout svg{
     color: black;
+}
+@media (Max-width:1000px){
+    .sidebar{
+        transform: translateX(-100%);
+        transition: all 0.4s;
+        z-index: 100;
+    }
+    .sidebar--open{
+        transform: translateX(0%);
+    }
 }

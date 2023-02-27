@@ -1,0 +1,118 @@
+.transaction-body{
+    margin-top: 50px;
+}
+.transaction-text{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24.5599px;
+    color: #000000;
+}
+.transactions{
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.transaction-receipt{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    transition: all 0.2s;
+}
+.transaction-receipt:hover{
+    transform: scale(1.03);
+    background-color: whitesmoke;
+    transition: all 0.2s;
+}
+.transaction-status{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.transaction-status img{
+    width: 60px;
+    height: 60px;
+}
+.transaction-amount-name{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.transaction-history-amount{
+    /* margin-left: 40px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+}
+.transaction-time{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.7);
+}
+@media (max-width: 1300px){
+    .transactions{
+        padding: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+@media (max-width: 1100px){
+    .transaction-name{
+        font-size: 16px;
+    }
+    .transaction-history-amount{
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .transaction-time{
+        font-size: 14px;
+    }
+}
+@media (max-width: 1000px){
+    .transactions{
+        padding: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+@media (max-width:800px) {
+    .transaction-amount-name{
+        margin-left: 20px;
+        display: block;
+    }
+    .transaction-history-amount{
+       margin-top: 5px;
+    }
+}
+@media (max-width:500px) {
+    .transaction-body{
+        margin-top: 20px;
+    }
+    .transactions{
+        padding: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .transaction-status{
+        width: 80%;
+    }
+    .transaction-amount-name{
+        margin-left: 5px;
+        display: block;
+    }
+    .transaction-name{
+        font-size: 14px;
+    }
+    .transaction-history-amount{
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .transaction-time{
+        font-size: 12px;
+    }
+}

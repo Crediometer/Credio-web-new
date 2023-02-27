@@ -5,10 +5,22 @@
   margin: 0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
 .body{
   display: flex;
 }
 .body-inner{
+  width: 100%;
   margin-left: 280px;
   padding: 50px;
+}
+
+@media (Max-width: 1000px){
+  .body-inner{
+    margin-left: 0px;
+    padding: 10px;
+  }
 }

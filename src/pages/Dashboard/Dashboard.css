@@ -1,3 +1,20 @@
+.dashboard-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+.navbar-mobile, .username{
+    display: none;
+}
+.dashboard-notification{
+    display: flex;
+    justify-content: end;
+}
+.dashboard-notification svg{
+    font-size: 20px;
+}
 .dashboard-body{
     width: 100%;
     display: flex;
@@ -11,8 +28,9 @@
 .dashboard-right{
     padding: 20px;
     width: 48%;
-    background: #FFF7F7;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.07);
+    /* height: 100%; */
+    background:white;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.07);
     border-radius: 5px;
 }
 .kyc-status{
@@ -57,7 +75,7 @@
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 280px;
+    height: 230px;
     border-radius: 30px;
 }
 .card-top{
@@ -65,7 +83,7 @@
     justify-content: space-between;
 }
 .amount{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .amount p{
     font-family: 'Inter';
@@ -75,7 +93,7 @@
     color: #EFEFF1;
 }
 .card-name{
-    margin-top: 40px;
+    margin-top: 20px;
 }
 .card-name p{
    font-family: 'Inter';
@@ -97,7 +115,7 @@
 .account-type{
     display: flex;
     justify-content: space-between;
-    padding: 30px;
+    padding: 10px;
     padding-left: 60px;
     padding-right: 60px;
 }
@@ -105,7 +123,7 @@
     background: #FFFFFF;
     box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314);
     border-radius: 22px;
-    width: 40%;
+    width: 200px;
     display: flex;
     padding: 30px;
     flex-direction: column;
@@ -115,15 +133,14 @@
     background: #FFFFFF;
     box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314);
     border-radius: 22px;
-    width: 40%;
+    width: 200px;
     display: flex;
     padding: 30px;
     flex-direction: column;
     align-items: center;
 }
 .account-progressbar{
-    height: 130px;
-    width: 130px;    
+    width: 100%;    
 }
 .account{
     font-family: 'Inter';
@@ -157,7 +174,7 @@
     color: #FFFFFF;
 }
 .my-saving,.single-transaction{
-    margin-top: 10px;
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -172,7 +189,7 @@
 .saving-icon, .transaction-icon{
     width: 60px;
     height: 60px;
-    background-color: #C9CBCE;
+    background-color: #ccced2ce;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -248,14 +265,14 @@
 .transaction-history-name{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 20px;
     color: #000000;
 }
 .transaction-amount{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
     color: #000000;
 }
@@ -265,4 +282,58 @@
     font-weight: 400;
     font-size: 12px;
     color: rgba(0, 0, 0, 0.7);
+}
+@media (Max-width: 1440px) {
+    .account-type{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (Max-width: 1000px){
+    .navbar-mobile{
+        display: block;
+        font-size: 25px;
+    }
+    .username{
+        display: block;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        color: #000000;
+    }
+    .dashboard-body{
+        display: block;
+    }
+    .dashboard-left{
+        width: 100%;
+    }
+    .dashboard-right{
+        display: none;
+    }
+    .account-type{
+        padding-left: 70px;
+        padding-right: 70px;
+    }
+}
+@media (Max-width: 700px){
+    .account-type{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+@media (Max-width: 550px){
+    .account-type{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+@media (Max-width: 350px){
+    .account-type{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .naira-account, .dollar-account{
+        width: 130px;
+    }
 }
