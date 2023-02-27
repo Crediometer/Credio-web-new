@@ -21,7 +21,7 @@ const Navbar = () => {
                                 <img src='https://source.unsplash.com/random/?People/'></img>
                             </div>
                             <div className="navbar-name">
-                                <p className='greeting'>Good day</p>
+                                <p className='greetings'>Good day</p>
                                 <p className="name">Dear Ibrarch</p>
                             </div>
                         </div>
