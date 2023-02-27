@@ -8,8 +8,8 @@
     background-color: white;
     display: flex;
     justify-content: space-between; */
-    z-index: 4;
-    background-color: #BA181B;
+    /* z-index: 4;
+    background-color: #BA181B; */
 }
 .navbar-inner{
     position: fixed;
@@ -22,9 +22,9 @@
     display: flex;
     justify-content: space-between;
     z-index: 4;
-    -webkit-box-shadow: 9px 13px 28px -26px rgba(0,0,0,0.75);
--moz-box-shadow: 9px 13px 28px -26px rgba(0,0,0,0.75);
-box-shadow: 9px 13px 28px -26px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 9px -1px 28px -30px rgba(0,0,0,0.75);
+    -moz-box-shadow: 9px -1px 28px -30px rgba(0,0,0,0.75);
+    box-shadow: 9px -1px 28px -30px rgba(0,0,0,0.75);
 }
 .navbar-mobile{
     display: none;
@@ -40,6 +40,7 @@ box-shadow: 9px 13px 28px -26px rgba(0,0,0,0.75);
     font-weight: 700;
     font-size: 28px;
     color: #BA181B;
+    margin-left: 50px;
 }
 .searchbar{
     width: 40%;
@@ -74,6 +75,7 @@ box-shadow: 9px 13px 28px -26px rgba(0,0,0,0.75);
 .profile-side{
     display: flex;
     align-items: center;
+    margin-right: 50px;
 }
 .bell{
     margin-right: 20px;

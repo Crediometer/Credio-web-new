@@ -33,7 +33,7 @@
     list-style: none;
 }
 .links nav li a{
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 20px;
     text-decoration: none;
     display: flex;
@@ -42,7 +42,7 @@
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    color: #1b232d5e;
+    color: #777777;
     transition: all 0.3s;
 }
 .links nav li a:hover{
