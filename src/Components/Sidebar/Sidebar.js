@@ -12,8 +12,8 @@ const Sidebar = ({Sidebar, closeSidebar}) => {
     return ( 
         <div className={Sidebar?"sidebar sidebar--open": "sidebar"}>
             <section className="sidebar-top">
-                <img className='image' src="https://source.unsplash.com/random/?People/"></img>
-                <p className="greeting">Dear Ibrach</p>
+                {/* <img className='image' src="https://source.unsplash.com/random/?People/"></img>
+                <p className="greeting">Dear Ibrach</p> */}
             </section>
             <section className="links">
                 <nav>
