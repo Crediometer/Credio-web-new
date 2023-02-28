@@ -34,9 +34,11 @@ const Dashboard = () => {
                         <div className="username">
                             <p>Dear Ibrarch</p>
                         </div>
-                        <div className="dashboard-notification">
-                            <IoNotifications/>
-                        </div>
+                        <Link to='/notification'>
+                            <div className="dashboard-notification">
+                                <IoNotifications/>
+                            </div>
+                        </Link>
                     </div>
                     <div className="dashboard-body">
                         <div className="dashboard-left">
@@ -126,7 +128,9 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                                 <div className="saving-right">
-                                    <FaChevronRight/>
+                                    <Link to='/saving'>
+                                        <FaChevronRight/>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

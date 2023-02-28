@@ -1,0 +1,56 @@
+.savingcard{
+    width: 40%;
+    padding: 30px;
+    background: #3a3a3ac4;
+    box-shadow: 0px 5.9507px 14.8768px rgba(177, 177, 177, 0.0901961);
+    border-radius: 20.2324px;
+}
+.savingcard-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.saving-card-name{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+.saving-card-type{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+.saving-card-amount{
+    margin-top: 40px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+.savingcard-bottom{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.saving-card-payday{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.0915px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}
+.saving-card-type{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13.0915px;
+    color: #FFFFFF;
+    opacity: 0.5;
+}

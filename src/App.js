@@ -17,6 +17,9 @@ import Profile from './pages/Profile/Profile';
 import Dialogues from './pages/Dialogues/Dialogues';
 import { FiSettings } from 'react-icons/fi';
 import Setting from './pages/Profile/Setting';
+import Bulktransfer from './pages/BulkTransfer/Bulktransfer';
+import Notification from './pages/Notification/Notification';
+import Saving from './pages/Saving/Saving';
 function App() {
   return (
     <Router>
@@ -38,6 +41,9 @@ function App() {
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/dialogue' element={<Dialogues/>}/>
             <Route path='/setting' element={<Setting/>}/>
+            <Route path='/bulktransfer' element={<Bulktransfer/>}></Route>
+            <Route path='/notification' element={<Notification/>}></Route>
+            <Route path='/saving' element={<Saving/>}></Route>
           </Routes>
         </div>
       </Provider>

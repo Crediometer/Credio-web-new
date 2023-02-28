@@ -113,15 +113,17 @@ const Nairaacount = () => {
                                             <p className="detail-word">Pay by scanning a QR-code</p>
                                         </div>
                                     </div>
-                                    <div className="receipt action">
-                                        <div className="actionicon">
-                                            <HiUserGroup/>
+                                    <Link to='/bulktransfer'>
+                                        <div className="receipt action">
+                                            <div className="actionicon">
+                                                <HiUserGroup/>
+                                            </div>
+                                            <div className="action-details">
+                                                <p className="detail-title">Bulk Transfer</p>
+                                                <p className="detail-word">Transfer money to multiple people with one click x</p>
+                                            </div>
                                         </div>
-                                        <div className="action-details">
-                                            <p className="detail-title">Bulk Transfer</p>
-                                            <p className="detail-word">Transfer money to multiple people with one click x</p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
