@@ -1,15 +1,18 @@
-.empty{
+/* .empty{
     display: block;
-}
+} */
 .empty svg{
     display: none;
 }
-.account-top p{
+.account-top{
     width: 100%;
+
+}
+.account-top p{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     color: #000000;
 }
@@ -91,14 +94,14 @@
     .account-top p{
         font-size: 25px;
     }
-    .account-action-inner{
+    .account-action-inner, .payment-action{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        row-gap: 50px;
+        row-gap: 30px;
     }
 }
 @media (max-width: 700px){
-    .account-action-inner{
+    .account-action-inner, .payment-action{
         display: block;
         /* grid-template-columns: 1fr ;
         row-gap: 50px; */

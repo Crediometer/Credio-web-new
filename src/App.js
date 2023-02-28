@@ -11,6 +11,8 @@ import Transaction from './pages/Transaction/Transaction';
 import Receipt from './pages/Transaction/Receipt';
 import Accounttransfer from './pages/Accounttransfer/Accounttransfer';
 import Confirmtransfer from './pages/Accounttransfer/Confirmtransfer';
+import Accountdetails from './pages/Accountdetails/Accountdetails';
+import Payment from './pages/Payment/Payment';
 function App() {
   return (
     <Router>
@@ -27,6 +29,8 @@ function App() {
             <Route path='/receipt' element={<Receipt/>}/>
             <Route path='/transfer' element={<Accounttransfer/>}/>
             <Route path='/confirm' element={<Confirmtransfer/>}/>
+            <Route path='/accountdetails' element={<Accountdetails/>}/>
+            <Route path='/payment' element={<Payment/>}/>
           </Routes>
         </div>
       </Provider>

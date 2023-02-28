@@ -1,17 +1,9 @@
 .dashboard-top{
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    display: none;
 }
-.navbar-mobile, .username{
+.navbar-mobile svg, .username, .dashboard-notification{
     display: none;
-}
-.dashboard-notification{
-    display: flex;
-    justify-content: end;
 }
 .dashboard-notification svg{
     font-size: 20px;
@@ -256,6 +248,14 @@
     }
 }
 @media (Max-width: 1000px){
+    .dashboard-top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .dashboard-notification{
+        display: block;
+    }
     .navbar-mobile{
         display: block;
         font-size: 25px;

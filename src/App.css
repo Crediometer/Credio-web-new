@@ -27,4 +27,8 @@ a{
     margin-left: 0px;
     padding: 10px;
   }
+  .app-container{
+    padding-top: 0px;
+    display: flex;
+  }
 }

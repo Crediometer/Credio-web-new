@@ -50,15 +50,17 @@ const Nairaacount = () => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <div className="account-details action">
-                                        <div className="actionicon">
-                                            <IoWarningOutline/>
+                                    <Link to='/accountdetails'>
+                                        <div className="account-details action">
+                                            <div className="actionicon">
+                                                <IoWarningOutline/>
+                                            </div>
+                                            <div className="action-details">
+                                                <p className="detail-title">Account </p>
+                                                <p className="detail-word">Account number details and all data</p>
+                                            </div>
                                         </div>
-                                        <div className="action-details">
-                                            <p className="detail-title">Account </p>
-                                            <p className="detail-word">Account number details and all data</p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                     <div className="receipt action">
                                         <div className="actionicon">
                                             <FaReceipt/>

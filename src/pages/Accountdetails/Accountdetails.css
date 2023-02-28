@@ -1,0 +1,63 @@
+.bank-account-details{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.bank-account-details-inner{
+    width: 50%;
+    padding: 20px;
+}
+.sub-account-details{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail-topic{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+    text-align: left;
+}
+.detail-result{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #000000;
+    text-align: right;
+}
+@media (max-width:1000px){
+    .account-card-details{
+        width: 90%;
+    }
+    .bank-account-details-inner{
+        width: 90%;
+    }
+}
+@media (max-width:550px){
+    .account-card-details{
+        width: 100%;
+    }
+    .bank-account-details-inner{
+        width: 100%;
+    }
+    .detail-topic{
+        font-size: 16px;
+    }
+    .detail-result{
+        font-size: 16px;
+    }
+}
+@media (max-width:340px){
+    .detail-topic{
+        font-size: 12px;
+    }
+    .detail-result{
+        font-size: 12px;
+    }
+}

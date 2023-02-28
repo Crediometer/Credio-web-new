@@ -27,7 +27,7 @@ const Navbar = () => {
                         </div>
                 </div>
             </div>
-            <div className="navbar-mobile">
+            <div className="navbar-mobiles">
                 <FaBars/>
             </div>
         </div>
