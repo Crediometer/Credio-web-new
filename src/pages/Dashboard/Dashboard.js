@@ -20,7 +20,7 @@ const Dashboard = () => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
-      };
+    };
     return ( 
         <div className="dashboard body">
             <Navbar/>

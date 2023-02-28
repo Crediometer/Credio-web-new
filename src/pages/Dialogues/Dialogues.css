@@ -1,0 +1,42 @@
+.messages{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1.83309px solid #EFEFF0;
+}
+.message-sender{
+    display: flex;
+    align-items: center;
+}
+.sender-image{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #010101;
+    box-shadow: 0px 3.4104px 8.526px rgba(106, 106, 106, 0.133333);
+}
+.sender-name{
+    margin-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    color: #1B232D;
+}
+.message-time{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #1B232D;
+}
+@media (max-width: 1000px) {
+    .dialogue-body{
+        margin-top: 30px;
+    }
+    .sender-name{
+        font-size: 16px;
+    }
+}

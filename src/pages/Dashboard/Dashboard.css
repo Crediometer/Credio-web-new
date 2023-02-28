@@ -252,11 +252,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-top: 10px;
+
     }
     .dashboard-notification{
         display: block;
     }
-    .navbar-mobile{
+    .navbar-mobile svg{
         display: block;
         font-size: 25px;
     }

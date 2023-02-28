@@ -13,6 +13,10 @@ import Accounttransfer from './pages/Accounttransfer/Accounttransfer';
 import Confirmtransfer from './pages/Accounttransfer/Confirmtransfer';
 import Accountdetails from './pages/Accountdetails/Accountdetails';
 import Payment from './pages/Payment/Payment';
+import Profile from './pages/Profile/Profile';
+import Dialogues from './pages/Dialogues/Dialogues';
+import { FiSettings } from 'react-icons/fi';
+import Setting from './pages/Profile/Setting';
 function App() {
   return (
     <Router>
@@ -31,6 +35,9 @@ function App() {
             <Route path='/confirm' element={<Confirmtransfer/>}/>
             <Route path='/accountdetails' element={<Accountdetails/>}/>
             <Route path='/payment' element={<Payment/>}/>
+            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/dialogue' element={<Dialogues/>}/>
+            <Route path='/setting' element={<Setting/>}/>
           </Routes>
         </div>
       </Provider>
