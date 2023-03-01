@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import Mastercard from '../../Components/Mastercard/Mastercard';
 import Navbar from '../../Components/Navbar/Navbar';
 import Sidebar from '../../Components/Sidebar/Sidebar';
-import './Accounttransfer.css'
+import './Accounttransfer.css';
+import {Switch} from 'antd'
 const Accounttransfer = () => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
@@ -68,12 +69,10 @@ const Accounttransfer = () => {
                                         </textarea>
                                     </div>
                                     <div className="transfer-beneficiary">
-                                        <input
-                                            type='text'
-                                            placeholder='Add as beneficiary'
-                                            className='transferfield'
-                                        >
-                                        </input>
+                                        <p>Add as a beneficiary</p>
+                                        <div className="transfer-switch">
+                                            <Switch/>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="transfer-submit">

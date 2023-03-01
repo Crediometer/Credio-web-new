@@ -66,6 +66,24 @@
 .textfield{
     height: 170px;
 }
+.transfer-beneficiary{
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #DBE3E3;
+    border-radius: 10px;
+}
+.transfer-beneficiary p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+    opacity: 0.6;
+}
 .transfer-submit{
     width: 100%;
     margin-top: 30px;

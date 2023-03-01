@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaChevronLeft, FaPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import SavingCard from "../../Components/Savingcard/Savingcard";
 import Sidebar from "../../Components/Sidebar/Sidebar";
@@ -17,7 +18,9 @@ const Saving = () => {
                 <div className="body-inner saving-inner">
                     <div className="dashboard-top nairaaccount-top">
                         <div className="profile-back" >
-                            <FaChevronLeft/>
+                            <Link to='/dashboard'>
+                                <FaChevronLeft/>
+                            </Link>
                         </div>
                         <div className="account-top profile-top">
                             <p>My Savings</p>

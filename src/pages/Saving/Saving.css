@@ -41,3 +41,9 @@
     justify-content: center;
     width: 100%;
 }
+@media (max-width: 1000px){
+    .saving-inner{
+        background-color:  #1B232D;
+        height: 100vh;
+    }
+}
