@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaBars, FaChevronRight, FaHeadset, FaShare } from "react-icons/fa";
 import { IoNotifications } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import './Setting.css';
-const Setting = () => {
+import { connect } from "react-redux";
+import { fetchProfile } from "../../Redux/Profile/ProfileAction"
+const Setting = ({profileData,fetchProfile}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+
+    useEffect(() => {
+        fetchProfile();
+    }, []);
     return ( 
         <div className="setting">
             <Navbar/>
@@ -27,14 +33,15 @@ const Setting = () => {
                         </div>
                     </div>
                     <div className="setting-body">
+                    {profileData && profileData?.profile && (
                         <div className="settings-profile">
                             <div className="profile-image">
-                                <img src="https://source.unsplash.com/random/?People/"></img>
+                                <img src={profileData?.message?.profile?.profilePicture ?? "********"}></img>
                             </div>
                             <p className="settings-name">GojdNamse</p>
-                            <p className="settings-title">Credio CUstomer</p>
+                            <p className="settings-title">Credio  {profileData?.profile?.message?.profile?.businessName ??"********"}</p>
                         </div>
-
+                    )}
                         <div className="setting-action">
                             <div className="setting-action-inner">
                                 <div className="action-set">
@@ -67,5 +74,17 @@ const Setting = () => {
         </div>
     );
 }
- 
-export default Setting;
+const mapStoreToProps = (state) => {
+    console.log("states   ", state);
+    return {
+      profileData: state.profile,
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchProfile: () => dispatch(fetchProfile()),
+    };
+  };
+  
+export default connect(mapStoreToProps, mapDispatchToProps)(Setting);

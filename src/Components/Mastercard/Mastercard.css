@@ -9,6 +9,9 @@
     height: 230px;
     border-radius: 30px;
 }
+.mastercard-inner{
+    width: 100%;
+}
 .card-top{
     display: flex;
     justify-content: space-between;

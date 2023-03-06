@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiTransfer } from "react-icons/bi";
 import { FaBars, FaCreditCard, FaPeopleArrows, FaQrcode, FaReceipt } from "react-icons/fa";
 import { HiUserGroup } from "react-icons/hi2";
@@ -8,11 +8,17 @@ import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import './Nairaacount.css'
-const Nairaacount = () => {
+import { connect } from "react-redux";
+import { fetchProfile } from "../../Redux/Profile/ProfileAction";
+import { FormattedNumber, IntlProvider } from "react-intl";
+const Nairaacount = ({ profileData,fetchProfile}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    useEffect(() => {
+        fetchProfile();
+      }, []);
     return ( 
         <div className="nairaacount body">
             <Navbar/>
@@ -33,7 +39,23 @@ const Nairaacount = () => {
                     <div className="nairaaccount-body">
                         <div className="naira-balance">
                             <p className="balance-title">Your balance</p>
-                            <p className="balance-amount">₦ 19.250,69</p>
+                            {profileData && profileData?.profile && (
+                                <p className="balance-amount">
+                                    <IntlProvider>
+                                    {" "}
+                                    <p className="balance-amount">
+                                    <FormattedNumber
+                                        value={
+                                        profileData?.profile?.message?.profile?.vaults
+                                            ?.accountBalance ?? 0
+                                        }
+                                        style="currency"
+                                        currency="NGN"
+                                    />
+                                    </p>
+                                    </IntlProvider>
+                                </p>
+                            )}
                         </div>
                         <div className="nairaaccount-action">
                             <div className="account-action">
@@ -133,5 +155,16 @@ const Nairaacount = () => {
         </div>
     );
 }
- 
-export default Nairaacount;
+const mapStoreToProps = (state) => {
+    console.log("states   ", state);
+    return {
+      profileData: state.profile,
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchProfile: () => dispatch(fetchProfile()),
+    };
+  };
+export default  connect(mapStoreToProps, mapDispatchToProps)(Nairaacount);

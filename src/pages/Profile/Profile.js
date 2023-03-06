@@ -1,15 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaCopy, FaQrcode, FaStar, FaWeightHanging } from "react-icons/fa";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import './Profile.css';
-const Profile = () => {
+import { connect } from "react-redux";
+import { fetchProfile } from "../../Redux/Profile/ProfileAction";
+import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
+const Profile = ({ profileData,fetchProfile, transactionData, fetchTransaction}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    useEffect(() => {
+        fetchTransaction()
+        fetchProfile();
+      }, []);
     return ( 
         <div className="profile">
             <Navbar/>
@@ -52,20 +59,22 @@ const Profile = () => {
                                     <FaChevronRight/>
                                 </div>
                             </div>
-                            <div className="profile-information">
-                                <div className="profile-info">
-                                    <p className="info-head">Transfer Code:</p>
-                                    <p className="info-result">7453 56789 7595</p>
+                            {profileData && profileData?.profile && (
+                                <div className="profile-information">
+                                    <div className="profile-info">
+                                        <p className="info-head">Transfer Code:</p>
+                                        <p className="info-result">{profileData?.profile?.message?.profile?.vaults.accountNumber ??"********"}</p>
+                                    </div>
+                                    <div className="profile-info">
+                                        <p className="info-head">Name:</p>
+                                        <p className="info-result">{profileData?.profile?.message?.profile?.vaults.accountName ??"********"}</p>
+                                    </div>
+                                    <div className="profile-info">
+                                        <p className="info-head">Bank Name:</p>
+                                        <p className="info-result">SAFE HAVEN MFB</p>
+                                    </div>
                                 </div>
-                                <div className="profile-info">
-                                    <p className="info-head">Name:</p>
-                                    <p className="info-result">CREDIO/TOUREARTH</p>
-                                </div>
-                                <div className="profile-info">
-                                    <p className="info-head">Bank Name:</p>
-                                    <p className="info-result">SAFE HAVEN MFB</p>
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
                     <div className="profile-button">
@@ -83,5 +92,20 @@ const Profile = () => {
         </div>
     );
 }
- 
-export default Profile;
+
+const mapStoreToProps = (state) => {
+    console.log("states   ", state);
+    return {
+      profileData: state.profile,
+      transactionData: state.transaction
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchProfile: () => dispatch(fetchProfile()),
+      fetchTransaction: () => dispatch(fetchTransaction())
+    };
+  };
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Profile);

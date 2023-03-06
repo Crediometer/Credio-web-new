@@ -20,6 +20,7 @@ import Setting from './pages/Profile/Setting';
 import Bulktransfer from './pages/BulkTransfer/Bulktransfer';
 import Notification from './pages/Notification/Notification';
 import Saving from './pages/Saving/Saving';
+import Savingdetails from './pages/Saving/Savingdetails';
 function App() {
   return (
     <Router>
@@ -33,7 +34,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard/>} />
             <Route path='/nairaaccount' element={<Nairaacount/>}/>
             <Route path='/transactions' element={<Transaction/>}/>
-            <Route path='/receipt' element={<Receipt/>}/>
+            <Route path='/receipt/:id' element={<Receipt/>}/>
             <Route path='/transfer' element={<Accounttransfer/>}/>
             <Route path='/confirm' element={<Confirmtransfer/>}/>
             <Route path='/accountdetails' element={<Accountdetails/>}/>
@@ -44,6 +45,7 @@ function App() {
             <Route path='/bulktransfer' element={<Bulktransfer/>}></Route>
             <Route path='/notification' element={<Notification/>}></Route>
             <Route path='/saving' element={<Saving/>}></Route>
+            <Route path='/savingdetails' element={<Savingdetails/>}></Route>
           </Routes>
         </div>
       </Provider>

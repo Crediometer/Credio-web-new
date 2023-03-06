@@ -3,8 +3,20 @@ import { FaBars } from "react-icons/fa";
 import { IoNotifications } from "react-icons/io5";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import consts from '../Login/keys/const';
+import JSEncrypt from 'jsencrypt';
+import { connect } from "react-redux";
+import { fetchBank, postData, reqData } from "../../Redux/Bank/BankAction";
+import { depositData } from "../../Redux/Deposit/DepositAction";
 import './Confirmtransfer.css'
-const Confirmtransfer = () => {
+const Confirmtransfer = ({
+    nameData,
+    depositData,
+    reqData,
+    deposit
+  }) => {
+    const [combinedpin, setCombinedpin] = useState('');
+    // const [reference, setReference] = useState("")
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
@@ -54,16 +66,47 @@ const Confirmtransfer = () => {
     const [pin3, setPin3] = useState("");
     const atmpin3 = useRef(null);
     const onChangepin4 = (e) => {
-        // const value = e.target.value
-        // setPin3(value)
-        // const pins = `${pin}${pin1}${pin2}${value}`
-        // console.log(pins)
-        // var encrypt = new JSEncrypt();
-        // encrypt.setPublicKey(`${consts.pub_key}`);
-        // var encrypted = encrypt.encrypt(pins);
-        // console.log(encrypted)
-        // setCombinedpin(encrypted);
+        const value = e.target.value
+        setPin3(value)
+        const pins = `${pin}${pin1}${pin2}${value}`
+        console.log(pins)
+        var encrypt = new JSEncrypt();
+        encrypt.setPublicKey(`${consts.pub_key}`);
+        var encrypted = encrypt.encrypt(pins);
+        console.log(encrypted)
+        setCombinedpin(encrypted);
     };
+
+    const reference = 're3z6182'
+
+    // const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    // let result = "";
+    // for (let i = 0; i < 8; i++) {
+    //   result += characters.charAt(Math.floor(Math.random() * characters.length));
+    // }
+    // setReference(result);
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      reqData({
+        nameEnquiryReference: nameData.bankname.transferData.nameEnquiryReference,
+        debitAccountNumber: nameData.bankname.transferData.debitAccountNumber,
+        beneficiaryAccountNumber: nameData.bankname.transferData.beneficiaryAccountNumber,
+        beneficiaryBankCode: nameData.bankname.transferData.beneficiaryBankCode,
+        beneficiaryAccountName: nameData.bankname.transferData.beneficiaryAccountName,
+        narration: nameData.bankname.transferData.narration,
+        amount:nameData.bankname.transferData.amount,
+        saveBeneficiary: nameData.bankname.transferData.saveBeneficiary,
+        saveBeneficiaryForUs:nameData.bankname.transferData.saveBeneficiaryForUs,
+        pin:combinedpin,
+        paymentReference:reference
+      });
+      console.log(deposit)
+      // setDepositState({...depositstate, ...{deposit}, ...{combinedpin:pin }})
+      // console.log(combinedpin)
+      // console.log(depositstate)
+      depositData(deposit);
+    }
+
     return ( 
         <div className="confirmtransfer body">
             <Navbar/>
@@ -92,7 +135,7 @@ const Confirmtransfer = () => {
                                 <div className="preview-right">
                                     <p className="receipt-head">Amount</p>
                                     <p className="receipt-body-2">
-                                    {/* N{nameData.bankname.transferData.amount} */}N 2,000.00
+                                        N{nameData.bankname.transferData.amount}
                                     </p>
                                 </div>
                                 </div>
@@ -100,7 +143,7 @@ const Confirmtransfer = () => {
                                 <div className="preview-left">
                                     <p className="receipt-head">Account Number</p>
                                     <p className="receipt-body-2">
-                                    {/* {nameData.bankname.transferData.beneficiaryAccountNumber} */}099464746
+                                        {nameData.bankname.transferData.beneficiaryAccountNumber}
                                     </p>
                                 </div>
                                 <div className="preview-right">
@@ -112,7 +155,7 @@ const Confirmtransfer = () => {
                                 <div className="preview-left">
                                     <p className="receipt-head">Account Name</p>
                                     <p className="receipt-body-2">
-                                    {/* {nameData.bankname.transferData.beneficiaryAccountName} */}Ayodabo Blessing Odunayo//0164332950
+                                        {nameData.bankname.transferData.beneficiaryAccountName}
                                     </p>
                                 </div>
                                 <div className="preview-right">
@@ -167,10 +210,10 @@ const Confirmtransfer = () => {
                             <div className="transfer-submit ">
                                 <button
                                 // onClick={() => setOpenModal(true)}
-                                // onClick={handleSubmit}
                                 type="submit"
                                 value="Continue"
                                 className="submit-2"
+                                onClick={handleSubmit}
                                 >
                                 Finish
                                 </button>
@@ -182,5 +225,28 @@ const Confirmtransfer = () => {
         </div>
     );
 }
- 
-export default Confirmtransfer;
+const mapStoreToProps = (state) => {
+
+    return {
+      bankData: state.bankname,
+      nameData: state,
+      deposit: state.bankname.transferData
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchBank: () => dispatch(fetchBank()),
+      postData: (postState) => {
+        dispatch(postData(postState));
+      },
+      reqData: (depositState) => {
+        dispatch(reqData(depositState));
+      },
+      depositData: (depositState)=>{
+        dispatch(depositData(depositState))
+    }
+    };
+  };
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Confirmtransfer);

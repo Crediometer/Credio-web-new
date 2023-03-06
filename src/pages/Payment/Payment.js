@@ -5,14 +5,19 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import credit from '../../assets/image/credit.png';
 import debit from '../../assets/image/debit.png';
 import './Payment.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BiTransfer } from "react-icons/bi";
 import { Link } from "react-router-dom";
-const Payment = () => {
+import { connect } from "react-redux";
+import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
+const Payment = ({transactionData, fetchTransaction}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    useEffect(() => {
+        fetchTransaction()
+      }, []);
     return ( 
         <div className="payment body">
             <Navbar/>
@@ -34,26 +39,24 @@ const Payment = () => {
                         <div className="recent-transaction">
                             <p className="recent-transaction-head">Recent transactions</p>
                             <div className="recent-transaction-inner">
-                                <div className="single-recent-transaction">
-                                    <img src={credit}></img>
-                                    <p>SOLA-OYETUNJI</p>
-                                </div>
-                                <div className="single-recent-transaction">
-                                    <img src={credit}></img>
-                                    <p>SOLA-OYETUNJI</p>
-                                </div>
-                                <div className="single-recent-transaction">
-                                    <img src={debit}></img>
-                                    <p>RASHEED-OYETUNJI</p>
-                                </div>
-                                <div className="single-recent-transaction">
-                                    <img src={debit}></img>
-                                    <p>SOLA-OYETUNJI</p>
-                                </div>
-                                <div className="single-recent-transaction">
-                                    <img src={credit}></img>
-                                    <p>SOLA-OYETUNJI</p>
-                                </div>
+                            {transactionData && transactionData?.transaction && transactionData?.transaction.map((transaction)=>{
+                                return(
+                                    <div className="single-recent-transaction">
+                                        {transaction.type === 1 && (
+                                            <img src={debit} alt="Image 1" />
+                                        )}
+                                        {transaction.type === 0 && (
+                                            <img src={credit} alt="Image 2" />
+                                        )}
+                                        {transaction.type === 1 && (
+                                            <p>{transaction.referenceData.creditAccountName ?? "************"}</p>
+                                        )}
+                                        {transaction.type === 0 && (
+                                            <p>CREDIO/{transaction.from ?? "************"}</p>
+                                        )}
+                                    </div>
+                                )
+                            })}
                             </div>
                         </div>
                         <div className="account-action payment-transfer">
@@ -120,4 +123,18 @@ const Payment = () => {
     );
 }
  
-export default Payment;
+const mapStoreToProps = (state) => {
+    console.log("states   ", state);
+    return {
+      transactionData: state.transaction
+    };
+  };
+  
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      fetchTransaction: () => dispatch(fetchTransaction())
+    };
+  };
+  
+
+export default connect(mapStoreToProps, mapDispatchToProps)(Payment);

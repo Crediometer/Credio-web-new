@@ -34,9 +34,11 @@ const Saving = () => {
                             <p className="total-saving-head">Total savings</p>
                             <p className="saving-amount">₦ 14.100,00</p>
                         </div>
-                        <div className="saving-card">
-                            <SavingCard/>
-                        </div>
+                        <Link to='/savingdetails'>
+                            <div className="saving-card">
+                                    <SavingCard/>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -132,16 +132,6 @@ const Login = (props) => {
                             value={country}
                             onChange={handleCountry}
                         />{" "}
-                         <div className="inputfield loginfield">
-                                <div className="inputbox2 inputbox-login">
-                                    <input
-                                        type="tel"
-                                        value={fingerprint}
-                                        hidden
-                                    >
-                                    </input>
-                                </div>
-                            </div>
                             <div className="inputfield loginfield">
                                 <label>Phone Number</label><br></br>
                                 <div className="inputbox2 inputbox-login">

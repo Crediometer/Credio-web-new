@@ -1,0 +1,135 @@
+.savingdetails-account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.saving-account-type{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.saving-account-type img{
+    width: 30px;
+}
+.saving-account-number{
+    margin-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    opacity: 0.71;
+}
+.savingdetails-content{
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.savingdetails-content-left{
+    width: 40%;
+    margin-right: 30px;
+}
+.savingplan-head{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+.saving-plan{
+    margin-top: 30px;
+}
+.plans{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.plans-head{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19px;
+    color: #FFFFFF;
+}
+.plans-content{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.951px;
+    color: #FFFFFF;
+}
+.savingdetails-content-right{
+    padding: 30px;
+    margin-left: 30px;
+    width: 40%;
+    background-color: #F6F8F8;
+    border-radius: 10px 10px 0px 0px;
+}
+.saving-actions{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #1B232D;
+}
+.adding-action{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.adding-action-left{
+    display: flex;
+    align-items: center;
+}
+.addingicon{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background: #C9CBCE;
+    opacity: 0.24;
+}
+.addingtext{
+    margin-left: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #1B232D;
+}
+@media (max-width: 1000px){
+    .savingdetails-content{
+        margin-top: 50px;
+        display: block;
+    }
+    .savingdetails-content-left, .savingdetails-content-right{
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .savingdetails-content-right{
+        margin-top: 50px;
+    }
+    .savingplan-head{
+        font-size: 25px;
+    }
+    .plans-head{
+        font-size: 16px;
+    }
+    .plans-content{
+        font-size: 14px;
+    }
+    .addingtext{
+        font-size: 16px;
+    }
+}
