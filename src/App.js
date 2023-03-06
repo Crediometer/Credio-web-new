@@ -21,6 +21,7 @@ import Bulktransfer from './pages/BulkTransfer/Bulktransfer';
 import Notification from './pages/Notification/Notification';
 import Saving from './pages/Saving/Saving';
 import Savingdetails from './pages/Saving/Savingdetails';
+import Chatpage from './pages/Dialogues/Chatpage';
 function App() {
   return (
     <Router>
@@ -46,6 +47,7 @@ function App() {
             <Route path='/notification' element={<Notification/>}></Route>
             <Route path='/saving' element={<Saving/>}></Route>
             <Route path='/savingdetails' element={<Savingdetails/>}></Route>
+            <Route path='/chat' element={<Chatpage/>}></Route>
           </Routes>
         </div>
       </Provider>

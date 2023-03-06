@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { IoNotifications } from "react-icons/io5";
+import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import './Dialogues.css';
@@ -27,13 +28,15 @@ const Dialogues = () => {
                         </div>
                     </div>
                     <div className="dialogue-body">
-                        <div className="messages">
-                            <div className="message-sender">
-                                <div className="sender-image"></div>
-                                <p className="sender-name">DEALER IN GOODS AND SEVERICES</p>
+                        <Link to='/chat'>
+                            <div className="messages">
+                                <div className="message-sender">
+                                    <div className="sender-image"></div>
+                                    <p className="sender-name">DEALER IN GOODS AND SEVERICES</p>
+                                </div>
+                                <p className="message-time">16-01-2023</p>
                             </div>
-                            <p className="message-time">16-01-2023</p>
-                        </div>
+                        </Link>
                         <div className="messages">
                             <div className="message-sender">
                                 <div className="sender-image"></div>
