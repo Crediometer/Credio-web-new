@@ -107,6 +107,63 @@
     font-size: 18px;
     color: #1B232D;
 }
+.saving-add-form{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #DBE3E3;
+    width: 100%;
+    border-radius: 20px;
+}
+.saving-add-form p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    color: #85898F;
+    opacity: 0.6;
+}
+.savingfield{
+    width: 100%;
+    height: 60px;
+    border: none;
+    padding: 10px;
+    background-color: transparent;
+}
+.savingfield::placeholder{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #85898F;
+    opacity: 0.6;
+}
+.saving-add-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+.saving-cancle,.saving-continue{
+    width: 40%;
+    height: 60px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.160784);
+    border-radius: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+}
+.saving-cancle{
+    background-color: #DCE3E3;
+    color: #53595C;
+}
+.saving-continue{
+    background-color: #B11226;
+    color: #FFFFFF;
+}
 @media (max-width: 1000px){
     .savingdetails-content{
         margin-top: 50px;

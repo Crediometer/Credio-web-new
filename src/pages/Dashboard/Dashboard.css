@@ -2,12 +2,13 @@
     width: 100%;
     display: flex;
 }
+
 .navbar-mobile svg, .username, .dashboard-notification{
     display: none;
 }
-.dashboard-notification svg{
+/* .dashboard-notification svg{
     font-size: 20px;
-}
+} */
 .dashboard-body{
     width: 100%;
     display: flex;
@@ -16,15 +17,15 @@
 .dashboard-left{
     padding: 20px;
     /* background-color: aqua; */
-    width: 48%;
+    width: 40%;
 }
 .dashboard-right{
     padding: 20px;
-    width: 48%;
+    width: 55%;
     /* height: 100%; */
     background:white;
-    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.07);
-    border-radius: 5px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
 }
 .kyc-status{
     width: 100%;
@@ -70,39 +71,25 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 22px;
     color: #1B232D;
 }
 .account-type{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px;
-    padding-left: 60px;
-    padding-right: 60px;
+    margin-top: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
-.naira-account{
+.naira-account,.dollar-account{
     background: #FFFFFF;
     /* box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314); */
     border-radius: 22px;
-    width: 220px;
-    height: 350px;
+    width: 180px;
+    height: 280px;
+    padding: 10px;
     display: flex;
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 0.74);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 0.74);
-    box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 0.74);
-}
-.dollar-account{
-    background: #FFFFFF;
-    /* box-shadow: 0px 6.89131px 17.2283px rgba(177, 177, 177, 0.0784314); */
-    border-radius: 22px;
-    width: 220px;
-    display: flex;
-    height: 350px;
-    padding: 20px;
+    padding: 10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -111,13 +98,13 @@
     box-shadow: 0px 0px 10px 0px rgba(162, 162, 162, 0.74);
 }
 .account-progressbar{
-    width: 70%;    
+    width: 60%;    
 }
 .account{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 19px;
+    font-size: 16px;
     text-align: center;
     color: #1B232D;
 }
@@ -126,7 +113,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 15.1609px;
+    font-size: 12px;
     text-align: center;
     color: #8C9495;
 }
@@ -160,7 +147,7 @@
 .saving-icon, .transaction-icon{
     width: 60px;
     height: 60px;
-    background-color: #ccced2ce;
+    background-color: #f1f1f1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,18 +163,18 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 24px;
+    font-size: 18px;
     color: #1B232D;
 }
-.saving-amount{
+.amount-saved{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 14px;
     color: #85898F;
 }
 .saving-right svg{
-    font-size: 35px;
+    font-size: 30px;
 }
 .transaction-header{
     width: 100%;
@@ -199,7 +186,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     color: #000000;
 }
 .transaction-right{
@@ -234,14 +221,14 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 16px;
     color: #000000;
 }
 .transaction-amount{
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
+    font-weight: 500;
+    font-size: 14px;
     color: #000000;
 }
 .transaction-date{
@@ -251,7 +238,7 @@
     font-size: 12px;
     color: rgba(0, 0, 0, 0.7);
 }
-@media (Max-width: 1700px) {
+/* @media (Max-width: 1700px) {
     .account-type{
         padding-left: 40px;
         padding-right: 40px;
@@ -267,22 +254,22 @@
     .account-amount{
         font-size: 12px;
     }
-}
+} */
 @media (Max-width: 1440px) {
     .account-type{
         padding-left: 0px;
         padding-right: 0px;
     }
     .naira-account,.dollar-account{
-        width: 180px;
-        height: 300px;
+        width: 150px;
+        height: 250px;
         padding: 10px;
     }
     .account{
-        font-size: 16px;
+        font-size: 14px;
     }
     .account-amount{
-        font-size: 12px;
+        font-size: 10px;
     }
 }
 @media (Max-width: 1250px) {
@@ -291,8 +278,8 @@
         padding-right: 0px;
     }
     .naira-account,.dollar-account{
-        width: 150px;
-        height: 280px;
+        width: 130px;
+        height: 250px;
         padding: 10px;
     }
 }
@@ -315,8 +302,8 @@
         display: block;
         font-family: 'Poppins';
         font-style: normal;
-        font-weight: 700;
-        font-size: 18px;
+        font-weight: 500;
+        font-size: 16px;
         color: #000000;
     }
     .dashboard-body{
@@ -361,7 +348,7 @@
         padding-right: 0px;
     }
     .naira-account,.dollar-account{
-        width: 130px;
+        width: 140px;
         height: 280px;
         padding: 10px;
     }

@@ -7,6 +7,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 const Savingdetails = () => {
     const [sidebar, setSidebar] = useState(false);
+    const [showForm, setShowForm] = useState(false);
+    const handleClick = () => {
+        setShowForm(!showForm);
+      };
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
@@ -56,7 +60,30 @@ const Savingdetails = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="savingdetails-content-right">
+                            {showForm ? (
+                                <div className="savingdetails-content-right">
+                                <p className="saving-actions">Save from current account</p>
+                                <div className="savingdetail-action">
+                                    <div className="saving-add-form">
+                                        <p>Choose an amount to save</p>
+                                        <input
+                                            type="text"
+                                            placeholder="N 1000"
+                                            className="savingfield"
+                                        ></input>
+                                    </div>
+                                    <div className="saving-add-button">
+                                        <button className="saving-cancle" onClick={handleClick}>
+                                            Cancle
+                                        </button>
+                                        <button className="saving-continue">
+                                            Continue
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>):
+                            (
+                                <div className="savingdetails-content-right">
                                 <p className="saving-actions">Make a single save</p>
                                 <div className="savingdetail-action">
                                     <div className="adding-action">
@@ -66,7 +93,7 @@ const Savingdetails = () => {
                                             </div>
                                             <p className="addingtext">Add from current account</p>
                                         </div>
-                                        <div className="adding-action-right">
+                                        <div className="adding-action-right" onClick={handleClick}>
                                             <FaChevronRight/>
                                         </div>
                                     </div>
@@ -83,6 +110,7 @@ const Savingdetails = () => {
                                     </div>
                                 </div>
                             </div>
+                            )}
                         </div>
                     </div>
                 </div>

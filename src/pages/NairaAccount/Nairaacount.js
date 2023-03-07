@@ -126,15 +126,6 @@ const Nairaacount = ({ profileData,fetchProfile}) => {
                                             <p className="detail-word">Send money quickly to your saved contacts</p>
                                         </div>
                                     </div>
-                                    <div className="account-details action">
-                                        <div className="actionicon">
-                                            <FaQrcode/>
-                                        </div>
-                                        <div className="action-details">
-                                            <p className="detail-title">Scan QR-Code</p>
-                                            <p className="detail-word">Pay by scanning a QR-code</p>
-                                        </div>
-                                    </div>
                                     <Link to='/bulktransfer'>
                                         <div className="receipt action">
                                             <div className="actionicon">

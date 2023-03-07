@@ -38,8 +38,8 @@ const Setting = ({profileData,fetchProfile}) => {
                             <div className="profile-image">
                                 <img src={profileData?.message?.profile?.profilePicture ?? "********"}></img>
                             </div>
-                            <p className="settings-name">GojdNamse</p>
-                            <p className="settings-title">Credio  {profileData?.profile?.message?.profile?.businessName ??"********"}</p>
+                            <p className="settings-name">{profileData?.profile?.message?.profile?.businessName ??"********"}</p>
+                            <p className="settings-title">Credio Customer</p>
                         </div>
                     )}
                         <div className="setting-action">

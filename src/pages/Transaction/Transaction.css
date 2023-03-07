@@ -39,19 +39,24 @@
     display: flex;
     justify-content: space-between;
 }
+.transaction-name{
+    font-size: 16px;
+    width: 60%;
+}
 .transaction-history-amount{
     /* margin-left: 40px; */
+    width: 50%;
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 14px;
     color: #000000;
 }
 .transaction-time{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: rgba(0, 0, 0, 0.7);
 }
 @media (max-width: 1300px){
@@ -84,6 +89,13 @@
     .transaction-amount-name{
         margin-left: 20px;
         display: block;
+    }
+    .transaction-name{
+        width: 100%;
+    }
+    .transaction-history-amount{
+        /* margin-left: 40px; */
+        width: 100%;
     }
     .transaction-history-amount{
        margin-top: 5px;

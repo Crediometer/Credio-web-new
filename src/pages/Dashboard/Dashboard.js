@@ -11,16 +11,18 @@ import './Dashboard.css';
 import { FaBars, FaChevronRight, FaFilter } from "react-icons/fa";
 import { BsCalendar3 } from "react-icons/bs";
 import { IoNotifications } from "react-icons/io5";
+import MoonLoader from "react-spinners/MoonLoader";
 import { Link } from "react-router-dom";
 import Mastercard from "../../Components/Mastercard/Mastercard";
 import Navbar from "../../Components/Navbar/Navbar";
 import { connect } from "react-redux";
 import { fetchProfile } from "../../Redux/Profile/ProfileAction";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
-const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction}) => {
+const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction, loading, error}) => {
     const score = profileData?.profile?.message?.nairaPercentage;
     const score2 = 39
     const [sidebar, setSidebar] = useState(false);
+    const tenttransaction = transactionData.transaction.slice(0, 10);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
@@ -51,7 +53,19 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                         </div>
                     )}
                 </div> */}
-                {profileData && profileData?.profile && (
+                  {loading ? (
+                        <div className="loader">
+                            <MoonLoader
+                            color={"#B11226"}
+                            loading={loading}
+                            size={50}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                            />
+                        </div>
+                    ) : error ? (
+                        <p>{error}</p>
+                    ) : (
                     <div className="body-inner">
                         <div className="dashboard-top">
                             <div className="navbar-mobile" onClick={toggleSidebar}>
@@ -68,15 +82,17 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                         </div>
                         <div className="dashboard-body">
                             <div className="dashboard-left">
-                                <div className="kyc-status">
-                                    <div className="kyc-status-left">
-                                        <p className="kyc">KYC STATUS</p>
-                                        <p className="kyc-body">Full Identity Verification Incomplete</p>
+                                    {(profileData?.profile?.message?.profile?.pinCode === "") ? (
+                                        <div className="kyc-status">
+                                            <div className="kyc-status-left">
+                                                <p className="kyc">KYC STATUS</p>
+                                                <p className="kyc-body">Full Identity Verification Incomplete</p>
+                                            </div>
+                                            <div className="kyc-status-right">
+                                                <HiOutlineDocumentPlus/>
+                                            </div>
                                     </div>
-                                    <div className="kyc-status-right">
-                                        <HiOutlineDocumentPlus/>
-                                    </div>
-                                </div>
+                                    ):(<div></div>)}
                                 <div className="bank-card">
                                     <Mastercard/>
                                 </div>
@@ -150,7 +166,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                         </div>
                                         <div className="saving-text">
                                             <p className="saving-header">My savings</p>
-                                            <p className="saving-amount">₦14.100,00</p>
+                                            <p className="amount-saved">₦14.100,00</p>
                                         </div>
                                     </div>
                                     <div className="saving-right">
@@ -175,7 +191,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                     </div> */}
                                 </div>
                                 <div className="transaction-body">
-                                    {transactionData && transactionData?.transaction && transactionData?.transaction.map((transaction)=>{
+                                    {tenttransaction.map((transaction)=>{
                                         return(
                                             <div className="single-transaction">
                                                 <div className="transaction-history-left">
@@ -212,7 +228,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                             </div>
                         </div>
                     </div>
-                )}
+               )}
             </div>
         </div>
     );
@@ -224,7 +240,9 @@ const mapStoreToProps = (state) => {
     console.log("states   ", state);
     return {
       profileData: state.profile,
-      transactionData: state.transaction
+      transactionData: state.transaction,
+      loading: state.profile.loading,
+      error: state.profile.error
     };
   };
   

@@ -135,6 +135,7 @@ const Accounttransfer = ({ bankData, fetchBank, postData, nameData, reqData }) =
                                          onChange={handleBank}
                                         >
                                             <optgroup>
+                                                <option>Select Bank</option>
                                                 {bankData &&
                                                 bankData.bank &&
                                                 bankData.bank.map((banks) => {
@@ -156,14 +157,23 @@ const Accounttransfer = ({ bankData, fetchBank, postData, nameData, reqData }) =
                                             required
                                         >
                                         </input>
-                                        <p className="receiver-account-name">{
-                                            nameData &&
-                                            nameData.bankname.accountDetails &&
-                                            nameData.bankname.accountDetails &&
-                                            nameData.bankname.accountDetails.data &&
-                                            nameData.bankname.accountDetails.data.accountName
+                                    </div>
+                                    <div className="account-name-field">
+                                        <input
+                                            type='text'
+                                            placeholder='Account Name'
+                                            className='transferfield'
+                                            value={
+                                                nameData &&
+                                                nameData.bankname.accountDetails &&
+                                                nameData.bankname.accountDetails &&
+                                                nameData.bankname.accountDetails.data &&
+                                                nameData.bankname.accountDetails.data.accountName
                                             }
-                                        </p>
+                                            required
+                                            readOnly
+                                        >
+                                        </input>
                                     </div>
                                     <div className="transfer-amount">
                                         <input

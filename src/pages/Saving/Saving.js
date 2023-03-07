@@ -36,7 +36,7 @@ const Saving = () => {
                         </div>
                         <Link to='/savingdetails'>
                             <div className="saving-card">
-                                    <SavingCard/>
+                                <SavingCard/>
                             </div>
                         </Link>
                     </div>

@@ -17,7 +17,7 @@
     color: #000000;
 }
 .nairaaccount-body{
-    margin-top: 70px;
+    margin-top: 50px;
 }
 .naira-balance{
     font-family: 'Inter';
@@ -26,11 +26,11 @@
     color: #151515;
 }
 .balance-title{
-    font-size: 23px;
+    font-size: 20px;
 }
 .balance-amount{
     margin-top: 10px;
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 500;
 }
 .nairaaccount-action{
@@ -41,30 +41,32 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 20px;
     color: #1B232D;
 }
 .account-action-inner{
+    margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     row-gap: 50px;
+    column-gap: 20px;
 }
 .action{
     display: flex;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
 }
 .actionicon{
-    width: 70px;
-    height: 60px;
+    width: 60px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #C9CBCE;
+    background: #f1f1f1;
     border-radius: 8px;
 }
 .actionicon svg{
-    font-size: 25px;
+    font-size: 20px;
 }
 .action-details{
     width: 100%;
@@ -73,15 +75,16 @@
     font-style: normal;
     color: #1B232D;
     margin-left: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 2px solid #EFEFF0;
 }
 .detail-title{
-    font-size: 20px;
+    font-size: 18px;
 }
 .detail-word{
-    font-size: 15px;
+    margin-top: 5px;
+    font-size: 12px;
 }
 .transfer-action{
     margin-top: 80px;
@@ -99,6 +102,9 @@
         grid-template-columns: 1fr 1fr;
         row-gap: 30px;
     }
+    .action{
+        margin-top: 30px;
+    }
 }
 @media (max-width: 700px){
     .account-action-inner, .payment-action{
@@ -110,9 +116,9 @@
         font-size: 20px;
     }
     .detail-title{
-        font-size: 18px;
+        font-size: 16px;
     }
     .detail-word{
-        font-size: 14px;
+        font-size: 12px;
     }
 }

@@ -1,6 +1,12 @@
 .payment-body{
     margin-top: 30px;
 }
+.payment-inner{
+
+}
+.recent-transaction{
+    width: calc(100%);
+}
 .recent-transaction-head{
     font-family: 'Inter';
     font-style: normal;
@@ -8,22 +14,33 @@
     font-size: 24px;
     color: #1B232D;
 }
-.recent-transaction-inner{
-    display: flex;
+.scrollable-outer{
     width: 100%;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    margin-top: 20px;
-    padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
+.scrollable{
+    padding: 20px;
+    width: 76vw;
+    display: flex;
+    overflow-x: auto; /* or "scroll" if you want to always show the scrollbar */
+    white-space: nowrap;
+}
+.scrollable::-webkit-scrollbar {
+    display: none;
+  }
+
 .single-recent-transaction{
-    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
     padding: 10px;
     display: flex;
     align-items: center;
-    width: 250px;
+    width: fit-content;
     background: #FFFFFF;
-    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
+    -moz-box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
+    box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
     border-radius: 8px;
 }
 .single-recent-transaction img{
@@ -35,13 +52,18 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 14px;
     color: #1B232D;
 }
 .payment-action{
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr ;
-    row-gap: 20px;
+    row-gap: 40px;
+    column-gap: 30px;
+}
+.payment-action-2{
+    margin-top: 30px;
 }
 .payment-transfer{
     margin-top: 60px;
@@ -58,9 +80,15 @@
         grid-template-columns: 1fr 1fr;
         row-gap: 30px;
     }
+    .scrollable{
+        width: 90vw;
+    }
 }
 @media (max-width:700px) {
     .payment-action{
         display: block;
+    }
+    .single-recent-transaction p{ 
+        font-size: 12px;
     }
 }

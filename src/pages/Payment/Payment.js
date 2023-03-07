@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
 const Payment = ({transactionData, fetchTransaction}) => {
     const [sidebar, setSidebar] = useState(false);
+    const tenttransaction = transactionData.transaction.slice(0, 10);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
@@ -23,8 +24,8 @@ const Payment = ({transactionData, fetchTransaction}) => {
             <Navbar/>
             <div className="app-container">
                 <Sidebar Sidebar={sidebar} closeSidebar={toggleSidebar}/>
-                <div className="body-inner">
-                    <div className="dashboard-top">
+                <div className="body-inner payment-inner">
+                    <div className="dashboard-top nairaaccount-top">
                         <div className="navbar-mobile empty" onClick={toggleSidebar}>
                             <FaBars/>
                         </div>
@@ -38,25 +39,27 @@ const Payment = ({transactionData, fetchTransaction}) => {
                     <div className="payment-body">
                         <div className="recent-transaction">
                             <p className="recent-transaction-head">Recent transactions</p>
-                            <div className="recent-transaction-inner">
-                            {transactionData && transactionData?.transaction && transactionData?.transaction.map((transaction)=>{
-                                return(
-                                    <div className="single-recent-transaction">
-                                        {transaction.type === 1 && (
-                                            <img src={debit} alt="Image 1" />
-                                        )}
-                                        {transaction.type === 0 && (
-                                            <img src={credit} alt="Image 2" />
-                                        )}
-                                        {transaction.type === 1 && (
-                                            <p>{transaction.referenceData.creditAccountName ?? "************"}</p>
-                                        )}
-                                        {transaction.type === 0 && (
-                                            <p>CREDIO/{transaction.from ?? "************"}</p>
-                                        )}
-                                    </div>
-                                )
-                            })}
+                            <div className="scrollable-outer">
+                                <div className="scrollable">
+                                    {tenttransaction.map((transaction)=>{
+                                        return(
+                                            <div className="single-recent-transaction">
+                                                {transaction.type === 1 && (
+                                                    <img src={debit} alt="Image 1" />
+                                                )}
+                                                {transaction.type === 0 && (
+                                                    <img src={credit} alt="Image 2" />
+                                                )}
+                                                {transaction.type === 1 && (
+                                                    <p>{transaction.referenceData.creditAccountName ?? "************"}</p>
+                                                )}
+                                                {transaction.type === 0 && (
+                                                    <p>CREDIO/{transaction.from ?? "************"}</p>
+                                                )}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
                             </div>
                         </div>
                         <div className="account-action payment-transfer">
@@ -73,15 +76,6 @@ const Payment = ({transactionData, fetchTransaction}) => {
                                         </div>
                                     </div>
                                 </Link>
-                                <div className="account-details action">
-                                    <div className="actionicon">
-                                        <FaQrcode/>
-                                    </div>
-                                    <div className="action-details">
-                                        <p className="detail-title">Scan QR-Code</p>
-                                        <p className="detail-word">Pay by scanning a QR-code</p>
-                                    </div>
-                                </div>
                                 <div className="account-details action">
                                     <div className="actionicon">
                                         <FaCreditCard/>
@@ -102,7 +96,7 @@ const Payment = ({transactionData, fetchTransaction}) => {
                                 </div>
                             </div>
                         </div>
-                        <div className="account-action">
+                        <div className="account-action payment-action-2">
                             <p className="account-action-text">History</p>
                             <div className="account-action-inner">
                                 <div className="receipt action">

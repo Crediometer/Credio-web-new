@@ -142,13 +142,13 @@
 }
 .circle-background{
     position: absolute;
-    top: 40%;
+    top: 30%;
     left: 50%;
     width: 500px;
     height: 500px;
     z-index: 1;
     border-radius: 50%;
-    background-color: #f1f1f16f;
+    background-color: #f1f1f186;
 }
 @media (max-width: 1200px) {
     .login-form-section-inner{

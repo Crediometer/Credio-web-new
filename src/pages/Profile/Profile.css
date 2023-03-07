@@ -1,6 +1,6 @@
 .profile-inner{
     background-color: #1B232D;
-    height: 92.1vh;
+    height: 95vh;
 }
 .profile-back svg, .profile-setting svg{
     color: white;
@@ -25,7 +25,7 @@
     color: white;
 }
 .profile-details{
-    margin-top: 150px;
+    margin-top: 100px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -38,12 +38,16 @@
 .card-rating{
     color: white;
     width: 45%;
+    padding: 30px;
+    background: #3a3a3ac4;
+    box-shadow: 0px 5.9507px 14.8768px rgba(177, 177, 177, 0.0901961);
+    border-radius: 20.2324px;
 }
 .rating-head{
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 18px;
     color: #FFFFFF;
 }
 .card-stars{
@@ -65,7 +69,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 18px;
     color: #FFFFFF;
 }
 .ask-credit svg{
@@ -80,9 +84,13 @@
 .profile-information{
     width: 45%;
     padding: 30px;
-    background: #a1a1a1;
-    box-shadow: 0px 6.54434px 16.3609px rgba(177, 177, 177, 0.0901961);
+    background: #3a3a3ac4;
+    /* box-shadow: 0px 6.54434px 16.3609px rgba(177, 177, 177, 0.0901961); */
     border-radius: 22.2508px;
+    box-shadow: 0px 5.9507px 14.8768px rgba(177, 177, 177, 0.0901961);
+    /* -webkit-box-shadow: -1px -1px 32px -5px rgba(177, 177, 177, 0.0901961);
+    -moz-box-shadow: -1px -1px 32px -5px rgba(177, 177, 177, 0.0901961);
+    box-shadow: -1px -1px 32px -5px rgba(147, 147, 147, 0.979); */
 }
 .profile-info{
     margin-top: 20px;
@@ -92,17 +100,18 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 14px;
     color: #FFFFFF;
 }
 .info-head{
     text-align: left;
 }
-.info-reult{
+.info-result{
     text-align:right;
+    font-size: 12px;
 }
 .profile-button{
-    margin-top: 130px;
+    margin-top: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -125,6 +134,11 @@
     font-size: 24px;
     color: #000000;
 }
+@media (max-width:1100px){
+    .profile-inner{
+        height: 120vh;
+    }
+}
 @media (max-width:1000px){
     .profile-inner{
         background-color: #1B232D;
@@ -138,7 +152,7 @@
         width: 100%;
     }
     .profile-information{
-        margin-top: 40px;
+        margin-top: 30px;
     }
     .profile-copy, .profile-qr{
         width: 55%;

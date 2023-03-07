@@ -10,7 +10,7 @@
 
 } */
 .transfer-form{
-    margin-top: 67px;
+    margin-top: 40px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -22,10 +22,11 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 80px 80px 80px;
+    grid-template-rows: 70px 70px 70px 70px;
     grid-template-areas:
         'select comment'
         'accnumber comment'
+        'accname comment'
         'amount saveben'
     ;
     grid-gap: 20px;
@@ -37,6 +38,10 @@
 .account-number{
     width: 100%;
     grid-area: accnumber;
+}
+.account-name-field{
+    width: 100%;
+    grid-area: accname;
 }
 .receiver-account-name{
     font-family: 'Inter';
@@ -59,7 +64,7 @@
 }
 .transferfield, .select-bank select, .textfield{
     width: 100%;
-    height: 80px;
+    height: 70px;
     padding: 20px;
     background: #DBE3E3;
     border-radius: 10px;
@@ -71,11 +76,11 @@
     color: #1B232D;
 }
 .textfield{
-    height: 170px;
+    height: 250px;
 }
 .transfer-beneficiary{
     width: 100%;
-    height: 80px;
+    height: 70px;
     padding: 20px;
     display: flex;
     justify-content: space-between;

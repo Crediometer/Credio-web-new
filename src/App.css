@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;768;700;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;768;700;900&display=swap'); */
 *{
   padding: 0;
   margin: 0;
@@ -11,7 +11,7 @@ a{
   color: black;
 }
 .app-container{
-  padding-top: 80px;
+  padding-top: 50px;
   display: flex;
 }
 /* .body{
@@ -20,9 +20,15 @@ a{
 .body-inner{
   width: 100%;
   margin-left: 280px;
-  padding: 50px;
+  padding: 30px;
 }
-
+.loader{
+  width: 100%;
+  height:80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media (Max-width: 1000px){
   .body-inner{
     margin-left: 0px;
