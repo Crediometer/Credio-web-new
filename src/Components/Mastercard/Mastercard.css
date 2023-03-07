@@ -26,7 +26,7 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 35px;
+    font-size: 30px;
     color: #EFEFF1;
 }
 .card-name{
@@ -35,7 +35,7 @@
 .card-name p{
    font-family: 'Inter';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 300;
     font-size: 25px;
     color: #EFEFF1;
 }
