@@ -18,7 +18,7 @@ import { connect } from "react-redux";
 import { fetchProfile } from "../../Redux/Profile/ProfileAction";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
 const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction}) => {
-    const score = 66;
+    const score = profileData?.profile?.message?.nairaPercentage;
     const score2 = 39
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
@@ -109,7 +109,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                                 />
                                             </div>
                                             <p className="account">Naira account</p>
-                                            <p className="account-amount">Payment ₦120</p>
+                                            <p className="account-amount">Payment ₦{profileData?.profile?.message?.lastPayment??"********"}</p>
                                             <Link to='/nairaaccount'><button className="account-button">Pay</button></Link>
                                         </div>
                                         <div className="dollar-account">

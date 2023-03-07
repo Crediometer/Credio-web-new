@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const AuthActionType = {
     // REGISTER_SUCCESS: "REGISTER_SUCCESS",
     // REGISTER_FAIL: "REGISTER_FAIL",
+    LOGIN_START: "LOGIN_START",
     LOGOUT_SUCCESS: "LOGOUT_SUCCESS",
     LOGOUT_FAIL: "LOGOUT_FAIL",
     LOGIN_SUCCESS: "LOGIN_SUCCESS",
@@ -12,6 +13,7 @@ const AuthActionType = {
 
 const LoginAuthAction = (loginState, history, setErrorHandler) => {
     return async (dispatch) => {
+      dispatch({type: AuthActionType.LOGIN_START})
       try {
         const res = await axios.post("https://credio-api.herokuapp.com/api/v1/auth/login", loginState);
         const { data } = res;
@@ -26,8 +28,10 @@ const LoginAuthAction = (loginState, history, setErrorHandler) => {
             type: AuthActionType.LOGIN_FAIL,
             payload: error.response.data.message,
           });
+          // setErrorHandler({ hasError: true, message: error.response.data.message });
         }
         setErrorHandler({ hasError: true, message: error.response.data.message });
+        // console.log( setErrorHandler());
       }
     };
 };

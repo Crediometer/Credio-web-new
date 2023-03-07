@@ -8,6 +8,9 @@
     width: 100%;
     height: 230px;
     border-radius: 30px;
+    -webkit-box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
+    -moz-box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
+    box-shadow: 0px 0px 10px -3px rgba(102,102,102,0.74);
 }
 .mastercard-inner{
     width: 100%;
@@ -35,4 +38,19 @@
     font-weight: 400;
     font-size: 25px;
     color: #EFEFF1;
+}
+@media (max-width:1300px) {
+    .mastercard{
+        height: 200px;
+    }
+    .amount p{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 25px;
+        color: #EFEFF1;
+    }
+    .card-name p{
+         font-size: 18px;
+     }
 }

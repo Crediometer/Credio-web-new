@@ -12,7 +12,7 @@ import consts from "../Login/keys/const";
 import JSEncrypt from 'jsencrypt';
 import './Login.css';
 const Login = (props) => {
-    const {login} = props
+    const {login,error,loading} = props
     const [type, setType] = useState('password');
     const [icon, setIcon] =useState(faEye);
     const options = useMemo(() => countryList, []);
@@ -73,15 +73,19 @@ const Login = (props) => {
         e.preventDefault();
         
         try{
-        await login(loginState, ()=>{ 
-        console.log("now go to dashboard..");
-        history(`/dashboard`);}, setErrorHandler);
-        //;
-        // setPending(true);
-        console.log(loginState)
-        }catch(e){
+            await login(loginState, ()=>{ 
+            console.log("now go to dashboard..");
+            history(`/dashboard`);
+            // setPending(true);
+            }, ()=>{ 
+                console.log("now go to error..", error);
+                setErrorHandler(error)
+                // setPending(false);
+            });
+            console.log(loginState)
+        }catch(error){
             // setPending(false);
-            console.log("Something went wrong ??? ",e);
+            console.log("Something went wrong ??? ",error);
         }
     };
     // FOR DEVICE ID
@@ -97,20 +101,8 @@ const Login = (props) => {
       }, []);
     return ( 
         <div className="login">
-            <div className="login-left">
-                <p className='login-logo'>Credio Merchant</p>
-                <div className="group-lower">
-                    <div className="group-lower-inner">
-                        <div className="group-outer">
-                            <div className="group">
-                                <p>Group saving and thrift On the go!</p>
-                            </div>
-                        </div>
-                        <div className="lorem-outer">
-                            <p className='lorem'>Lörem ipsum påde sanas prelig fåvaning. Byter dol kovis. Presade fuktig. Odat trev samt vassa. Hyvis prenydarat, bigen </p>
-                        </div>
-                    </div>
-                </div>
+            <div className="login-logo">
+                <p>Credio</p>
             </div>
             <div className="login-right">
                 <div className="login-form-section-inner">
@@ -118,12 +110,11 @@ const Login = (props) => {
                         <p className='login-header'>Login</p>
                         <p className='login-text'>Please enter phone number and password to continue</p>
                     </div>
-                    {/* {(errorHandler[0]) ?
+                    {(errorHandler.dataAdded) ?
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {errorHandler[1]}
-                            {console.log(errorHandler)}
-                        </div> : <div></div>
-                    } */}
+                            
+                        </div> : <div>{errorHandler}</div>
+                    }
                     <div className="login-form">
                         <form onSubmit={handleSignUp}>
                         <Select
@@ -176,14 +167,14 @@ const Login = (props) => {
                                 value="Login"
                                 onClick={handleSignUp}
                                 >
-                                    {/* {pending ? (
+                                    {loading ? (
                                     <FontAwesomeIcon
                                         className="spinner"
                                         icon={faSpinner}
                                     ></FontAwesomeIcon>
-                                    ): ( */}
+                                    ): ( 
                                     <span>Login</span>
-                                    {/* )} */}
+                                     )} 
                                 </button>
                             </div>
                             <div className="account">
@@ -198,7 +189,8 @@ const Login = (props) => {
 }
 const mapStateToProps = state => {
     return{
-        token: state,
+        error:state.login.error,
+        loading: state.login.dataAdded
     }
 }
 

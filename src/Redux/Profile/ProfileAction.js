@@ -28,7 +28,7 @@ export const fetchProfile = () => {
         let datas = JSON.parse(localStorage.getItem("auth"))
         console.log(`data ----- ${datas}`)
         console.log(`this is data ${datas.token.token.token}`)
-        axios.get('https://credio-api.herokuapp.com/api/v1/agent/user/getProfile', {
+        axios.get('https://credio-api.herokuapp.com/api/v1/user/getProfile', {
             headers: {
                 Authorization: `Bearer ${datas.token.token.token}`
             }

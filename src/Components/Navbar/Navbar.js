@@ -21,7 +21,7 @@ const Navbar = ({ profileData,fetchProfile}) => {
                         </div>
                             <div className="profile-pic">
                                 <div className="navbar-image">
-                                    <img src={profileData?.message?.profile?.profilePicture ?? "********"}></img>
+                                    <img src={profileData?.message?.profile?.profilePicture}></img>
                                 </div>
                                 <div className="navbar-name">
                                     <p className='greetings'>Good day</p>

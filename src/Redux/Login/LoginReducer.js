@@ -8,7 +8,8 @@ import { AuthActionType } from "./LoginAction";
 
 const authState = {
     dataAdded: false,
-    token: {}  
+    token: {},
+    error: ''
 };
 const getAuthState = () => {
     const auth = localStorage.getItem("auth");
@@ -35,7 +36,12 @@ const authReducer = (state = authState, action) => {
         //   ] = `Bearer ${action.payload.jwttoken}`;
         //   localStorage.setItem("auth", JSON.stringify(newAuthState));
         //   return newAuthState;
-    
+        case AuthActionType.LOGIN_START:
+          const loginAuthStart = {
+            dataAdded: true,
+            error: ''
+          };
+          return loginAuthStart;
         case AuthActionType.LOGOUT_SUCCESS:
           localStorage.removeItem("auth");
           console.log('log-outttttt')
@@ -43,8 +49,9 @@ const authReducer = (state = authState, action) => {
     
         case AuthActionType.LOGIN_SUCCESS:
           const loginAuthState = {
-            dataAdded: true,
+            dataAdded: false,
             token: action.payload,
+            error: ''
           };
           axios.defaults.headers.common[
             "Authorization"
@@ -52,9 +59,16 @@ const authReducer = (state = authState, action) => {
           console.log(action.payload.token)
           localStorage.setItem("auth", JSON.stringify(loginAuthState));
           return loginAuthState;
-    
+        case AuthActionType.LOGIN_FAIL:
+          const loginfailState = {
+            dataAdded: false,
+            error: action.payload,
+            token: {}
+          }
+          console.log(loginfailState)
+          return loginfailState;
         default:
-          return state;
+        return state;
       }
 }
 export default authReducer
