@@ -11,11 +11,16 @@ import './Nairaacount.css'
 import { connect } from "react-redux";
 import { fetchProfile } from "../../Redux/Profile/ProfileAction";
 import { FormattedNumber, IntlProvider } from "react-intl";
-const Nairaacount = ({ profileData,fetchProfile}) => {
+import Modal from "../../Components/Modal/Modal";
+const Nairaacount = ({ profileData,fetchProfile, togglemodal}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    const [modal, setModal] = useState(false);
+    const handleModal = ()=>{
+        setModal(!modal)
+    }
     useEffect(() => {
         fetchProfile();
       }, []);
@@ -83,15 +88,17 @@ const Nairaacount = ({ profileData,fetchProfile}) => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <div className="receipt action">
-                                        <div className="actionicon">
-                                            <FaReceipt/>
+                                    <Link to='/receipts'>
+                                        <div className="receipt action">
+                                            <div className="actionicon">
+                                                <FaReceipt/>
+                                            </div>
+                                            <div className="action-details">
+                                                <p className="detail-title">Receipts</p>
+                                                <p className="detail-word">Saved receipts from previous payment</p>
+                                            </div>
                                         </div>
-                                        <div className="action-details">
-                                            <p className="detail-title">Receipts</p>
-                                            <p className="detail-word">Saved receipts from previous payment</p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                             <div className="transfer-action">
@@ -108,7 +115,7 @@ const Nairaacount = ({ profileData,fetchProfile}) => {
                                             </div>
                                         </div>
                                     </Link>
-                                    <div className="account-details action">
+                                    <div className="account-details action" onClick={handleModal}>
                                         <div className="actionicon">
                                             <FaCreditCard/>
                                         </div>
@@ -117,15 +124,17 @@ const Nairaacount = ({ profileData,fetchProfile}) => {
                                             <p className="detail-word">Account number, limit and all data</p>
                                         </div>
                                     </div>
-                                    <div className="receipt action">
-                                        <div className="actionicon">
-                                            <FaPeopleArrows/>
+                                    <Link to='/beneficiary'>
+                                        <div className="receipt action">
+                                            <div className="actionicon">
+                                                <FaPeopleArrows/>
+                                            </div>
+                                            <div className="action-details">
+                                                <p className="detail-title">Beneficiaries</p>
+                                                <p className="detail-word">Send money quickly to your saved contacts</p>
+                                            </div>
                                         </div>
-                                        <div className="action-details">
-                                            <p className="detail-title">Beneficiaries</p>
-                                            <p className="detail-word">Send money quickly to your saved contacts</p>
-                                        </div>
-                                    </div>
+                                    </Link>
                                     <Link to='/bulktransfer'>
                                         <div className="receipt action">
                                             <div className="actionicon">
@@ -140,6 +149,7 @@ const Nairaacount = ({ profileData,fetchProfile}) => {
                                 </div>
                             </div>
                         </div>
+                        {modal && (<Modal togglemodal={handleModal}/>)}
                     </div>
                 </div>
              </div>

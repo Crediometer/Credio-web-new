@@ -7,16 +7,22 @@ import { useParams } from "react-router-dom";
 import './Receipt.css';
 import { connect } from "react-redux";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
-const Receipt = ({transactionData, fetchTransaction}) => {
-    const {_id} = useParams();
-    const newtransactionData = transactionData._id;
+import { fetchSingle } from "../../Redux/Transaction/SingleAction";
+const Receipt = ({transaction, isLoading, error, fetchSingle }) => {
+    const {id} = useParams();
+    // const newtransactionData = transactionData._id;
+    // console.log(newtransactionData)
+    // console.log(transactionData)
+    console.log(id)
+    useEffect(() => {
+        fetchSingle(id);
+    }, [fetchSingle, id]);
+
+    console.log(transaction)
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
-    useEffect(() => {
-        fetchTransaction()
-    }, []);
     return ( 
         <div className="receipt body">
             <Navbar/>
@@ -49,26 +55,26 @@ const Receipt = ({transactionData, fetchTransaction}) => {
                                 <div className="amount-fee">
                                     <div className="amount-content">
                                         <p className="transaction-head">Transaction Amount</p>
-                                        <p className="transaction-content">{newtransactionData.referenceData.amount ?? "************"}</p>
+                                        {/* <p className="transaction-content">{newtransactionData.referenceData.amount ?? "************"}</p> */}
                                     </div>
                                     <div className="amount-content">
-                                        <p className="transaction-head">Transaction Fee</p>
-                                        <p className="transaction-content">N {newtransactionData.referenceData.fees ?? "************"}</p>
+                                        {/* <p className="transaction-head">Transaction Fee</p>
+                                        <p className="transaction-content">N {newtransactionData.referenceData.fees ?? "************"}</p> */}
                                     </div>
                                 </div>
                                 <div className="amount-fee">
                                     <div className="amount-content">
                                         <p className="transaction-head">Transaction Type </p>
-                                        {newtransactionData.type === 1 && (
+                                        {/* {newtransactionData.type === 1 && (
                                             <p className="transaction-content">Outgoing Transfer</p>
                                         )}
                                         {newtransactionData.type === 0 && (
                                              <p className="transaction-content">Incoming Transfer</p>
-                                        )}
+                                        )} */}
                                     </div>
                                     <div className="amount-content">
                                         <p className="transaction-head">Transaction ID</p>
-                                        <p className="transaction-content">{newtransactionData.referenceData._id ?? "************"}</p>
+                                        {/* <p className="transaction-content">{newtransactionData.referenceData._id ?? "************"}</p> */}
                                     </div>
                                 </div>
                                 <div className="amount-fee">
@@ -82,7 +88,7 @@ const Receipt = ({transactionData, fetchTransaction}) => {
                                 <div className="amount-fee">
                                     <div className="amount-content">
                                         <p className="transaction-head">Account Number</p>
-                                        <p className="transaction-content">{newtransactionData.referenceData.creditAccountNumber ?? "************"}</p>
+                                        {/* <p className="transaction-content">{newtransactionData.referenceData.creditAccountNumber ?? "************"}</p> */}
                                     </div>
                                     <div className="amount-content">
                                         <p className="transaction-head">Bank</p>
@@ -92,7 +98,7 @@ const Receipt = ({transactionData, fetchTransaction}) => {
                                 <div className="amount-fee">
                                     <div className="amount-content">
                                         <p className="transaction-head">Account Name </p>
-                                        <p className="transaction-content">{newtransactionData.referenceData.creditAccountName ?? "************"}</p>
+                                        {/* <p className="transaction-content">{newtransactionData.referenceData.creditAccountName ?? "************"}</p> */}
                                     </div>
                                 </div>
                                 <div className="status-head">
@@ -121,13 +127,15 @@ const Receipt = ({transactionData, fetchTransaction}) => {
 const mapStoreToProps = (state) => {
     console.log("states   ", state);
     return {
-        transactionData: state.transaction
+        transaction: state.transaction,
+        isLoading: state.isLoading,
+        error: state.error
     };
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchTransaction: () => dispatch(fetchTransaction())
+        fetchSingle: (id) => dispatch(fetchSingle(id))
     };
 };
 

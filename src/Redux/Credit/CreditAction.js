@@ -10,7 +10,7 @@ export const creditRequest = () =>{
 export const creditSuccess = (credit) =>{
     return{
         type: CREDIT_SUCCESS,
-        payload: profile
+        payload: credit
     }
 }
 

@@ -1,0 +1,43 @@
+.modal-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.397);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    width: 40%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal-information{
+    font-family: 'Inter';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.9);
+}
+.modal-close{
+    margin-top: 10px;
+    width: 90%;
+    background-color: #B11226;
+    padding: 10px;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-style: normal;
+    font-size: 18px;
+    color: white;
+    border-radius: 20px;
+    border: none;
+}

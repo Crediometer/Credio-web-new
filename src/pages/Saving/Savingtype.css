@@ -1,0 +1,91 @@
+.savingtype-inner{
+    background-color: #fbfbfb;
+    height: 98vh;
+}
+.Savingtype-header{
+    margin-top: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.7);
+}
+.savingtype-body-outer{
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.savingtype-body-inner{
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.flexible-saving{
+    width: 40%;
+    margin-top: 20px;
+    padding: 30px;
+    background: #FFFFFF;
+    box-shadow: 7px 7px 10px rgba(0, 0, 0, 0.01);
+    border-radius: 15px;
+}
+.saving-type-head{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #000000;
+}
+.flexible-saving-inner{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.saving-type-body{
+    width: 60%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #000000;
+}
+.radio-check{
+    -webkit-appearance: none; /* Remove default checkbox appearance */
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 50%; /* Make checkbox round */
+  width: 16px;
+  height: 16px;
+  border: 2px solid gray;
+  outline: none; /* Remove outline when focused */
+  cursor: pointer;
+}
+.radio-check:checked {
+    background: #9A0A1C;
+}
+.saving-type-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.saving-type-button .saving-add-button{
+    width: 50%;
+}
+.saving-type-form input, .saving-type-form select{
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #DBE3E3;
+    width: 100%;
+    border-radius: 20px;
+}
+.saving-type-form select optgroup option{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #85898F;
+    opacity: 0.6;
+}

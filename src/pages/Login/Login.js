@@ -93,7 +93,7 @@ const Login = (props) => {
         Fingerprint2.get((components) => {
             const values = components.map(component => component.value);
             const deviceID = Fingerprint2.x64hash128(values.join(''), 31);
-            const deviceId = "79b9a2980cb03df7cae8858f88d89212"
+            const deviceId = deviceID
             console.log(deviceID);
             setFingerprint(deviceID);
             setLoginState({ ...loginState, ...{deviceId} });
@@ -117,12 +117,7 @@ const Login = (props) => {
                     }
                     <div className="login-form">
                         <form onSubmit={handleSignUp}>
-                        <Select
-                            className="mb-4"
-                            options={options}
-                            value={country}
-                            onChange={handleCountry}
-                        />{" "}
+
                             <div className="inputfield loginfield">
                                 <label>Phone Number</label><br></br>
                                 <div className="inputbox2 inputbox-login">

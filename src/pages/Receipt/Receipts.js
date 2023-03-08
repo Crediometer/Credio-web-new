@@ -1,18 +1,18 @@
+import { useState } from "react";
+import { FaChevronLeft } from "react-icons/fa";
+import { IoNotifications } from "react-icons/io5";
+import { Link } from "react-router-dom";
+import bulk from '../../assets/image/bulkdot.png';
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import bulk from '../../assets/image/bulkdot.png';
-import { IoNotifications } from "react-icons/io5";
-import { FaChevronCircleLeft, FaChevronLeft } from "react-icons/fa";
-import { useState } from "react";
-import './Bulktransfer.css';
-import { Link } from "react-router-dom";
-const Bulktransfer = () => {
+
+const Receipts = () => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
     return ( 
-        <div className="bulktransfer">
+        <div className="receipt">
             <Navbar/>
             <div className="app-container">
                 <Sidebar Sidebar={sidebar} closeSidebar={toggleSidebar}/>
@@ -24,7 +24,7 @@ const Bulktransfer = () => {
                             </div>
                         </Link>
                         <div className="account-top">
-                            <p>Bulk Transfer</p>
+                            <p>Receipt</p>
                         </div>
                         <div className="dashboard-notification">
                             <IoNotifications/>
@@ -35,11 +35,8 @@ const Bulktransfer = () => {
                             <div className="bulk-image">
                                 <img src={bulk}></img>
                             </div>
-                            <p className="add-account">Add Account to Transfer to </p>
-                            <p className="bulk-link">Click Here</p>
-                        </div>
-                        <div className="bulk-add-account">
-                            <p>Add New Account</p>
+                            <p className="add-account">Saved transaction history could not be retrieved please try again </p>
+                            <p className="bulk-link">Refresh</p>
                         </div>
                     </div>
                 </div>
@@ -48,4 +45,4 @@ const Bulktransfer = () => {
     );
 }
  
-export default Bulktransfer;
+export default Receipts;

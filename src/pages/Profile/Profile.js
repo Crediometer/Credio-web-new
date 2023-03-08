@@ -8,7 +8,8 @@ import './Profile.css';
 import { connect } from "react-redux";
 import { fetchProfile } from "../../Redux/Profile/ProfileAction";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
-const Profile = ({ profileData,fetchProfile, transactionData, fetchTransaction}) => {
+import { fetchcredit } from "../../Redux/Credit/CreditAction";
+const Profile = ({ profileData,fetchProfile, transactionData, fetchTransaction, fetchCredit, creditData}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
@@ -41,7 +42,11 @@ const Profile = ({ profileData,fetchProfile, transactionData, fetchTransaction})
                     </div>
                     <div className="profile-score">
                         <p className="your-score">Your credit score</p>
-                        <p className="profile-credit-score">10</p>
+                        {(creditData.credit) ? (
+                            creditData.credit.map((item) => <div>
+                                {item}
+                            </div>)
+                        ):(<div> <p className="profile-credit-score">0</p></div>)}
                     </div>
                     <div className="profile-details">
                         <div className="profile-details-inner">
@@ -97,14 +102,16 @@ const mapStoreToProps = (state) => {
     console.log("states   ", state);
     return {
       profileData: state.profile,
-      transactionData: state.transaction
+      transactionData: state.transaction,
+      creditData: state.credit
     };
   };
   
   const mapDispatchToProps = (dispatch) => {
     return {
       fetchProfile: () => dispatch(fetchProfile()),
-      fetchTransaction: () => dispatch(fetchTransaction())
+      fetchTransaction: () => dispatch(fetchTransaction()),
+      fetchCredit: () => dispatch(fetchcredit())
     };
   };
 

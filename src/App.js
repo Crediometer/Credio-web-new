@@ -22,6 +22,9 @@ import Notification from './pages/Notification/Notification';
 import Saving from './pages/Saving/Saving';
 import Savingdetails from './pages/Saving/Savingdetails';
 import Chatpage from './pages/Dialogues/Chatpage';
+import Beneficiary from './pages/Beneficiary/Beneficiary';
+import Receipts from './pages/Receipt/Receipts';
+import Savingtype from './pages/Saving/Savingtype';
 function App() {
   return (
     <Router>
@@ -48,6 +51,9 @@ function App() {
             <Route path='/saving' element={<Saving/>}></Route>
             <Route path='/savingdetails' element={<Savingdetails/>}></Route>
             <Route path='/chat' element={<Chatpage/>}></Route>
+            <Route path='/beneficiary' element={<Beneficiary/>}></Route>
+            <Route path='/receipts' element={<Receipts/>}></Route>
+            <Route path='/savingtype' element={<Savingtype/>}></Route>
           </Routes>
         </div>
       </Provider>

@@ -13,7 +13,7 @@ const Transaction = ({transactionData, fetchTransaction}) => {
     const [sidebar, setSidebar] = useState(false);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
-    };
+    };  
     useEffect(() => {
         fetchTransaction()
     }, []);

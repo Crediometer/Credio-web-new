@@ -18,14 +18,19 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { connect } from "react-redux";
 import { fetchProfile } from "../../Redux/Profile/ProfileAction";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
+import Modal from "../../Components/Modal/Modal";
 const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction, loading, error}) => {
     const score = profileData?.profile?.message?.nairaPercentage;
     const score2 = 39
     const [sidebar, setSidebar] = useState(false);
+    const [modal, setModal] = useState(false);
     const tenttransaction = transactionData.transaction.slice(0, 10);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    const handleModal = ()=>{
+        setModal(!modal)
+    }
     useEffect(() => {
         fetchTransaction()
         fetchProfile();
@@ -93,7 +98,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                             </div>
                                     </div>
                                     ):(<div></div>)}
-                                <div className="bank-card">
+                                <div className="bank-card" onClick={handleModal}>
                                     <Mastercard/>
                                 </div>
                                 <div className="my-account">
@@ -155,7 +160,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                             </div>
                                             <p className="account"> Dollar account</p>
                                             <p className="account-amount">Payment ₦120</p>
-                                            <button className="account-button">Pay</button>
+                                            <button className="account-button" onClick={handleModal}>Pay</button>
                                         </div>
                                     </div>
                                 </div>
@@ -227,6 +232,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                 </div>
                             </div>
                         </div>
+                        {modal && (<Modal modal={modal} togglemodal={handleModal}/>)}
                     </div>
                )}
             </div>

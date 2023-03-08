@@ -10,12 +10,17 @@ import { BiTransfer } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchTransaction } from "../../Redux/Transaction/TransactionAction";
+import Modal from "../../Components/Modal/Modal";
 const Payment = ({transactionData, fetchTransaction}) => {
     const [sidebar, setSidebar] = useState(false);
     const tenttransaction = transactionData.transaction.slice(0, 10);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
+    const [modal, setModal] = useState(false);
+    const handleModal = ()=>{
+        setModal(!modal)
+    }
     useEffect(() => {
         fetchTransaction()
       }, []);
@@ -76,7 +81,7 @@ const Payment = ({transactionData, fetchTransaction}) => {
                                         </div>
                                     </div>
                                 </Link>
-                                <div className="account-details action">
+                                <div className="account-details action" onClick={handleModal}>
                                     <div className="actionicon">
                                         <FaCreditCard/>
                                     </div>
@@ -85,7 +90,7 @@ const Payment = ({transactionData, fetchTransaction}) => {
                                         <p className="detail-word">Account number, limit and all data</p>
                                     </div>
                                 </div>
-                                <div className="operation action">
+                                <div className="operation action" onClick={handleModal}>
                                     <div className="actionicon">
                                         <BiTransfer/>
                                     </div>
@@ -112,6 +117,7 @@ const Payment = ({transactionData, fetchTransaction}) => {
                     </div>
                     </div>
                 </div>
+                {modal && (<Modal togglemodal={handleModal}/>)}
             </div>
         </div>
     );

@@ -25,9 +25,11 @@ const Saving = () => {
                         <div className="account-top profile-top">
                             <p>My Savings</p>
                         </div>
-                        <div className="saving-add">
-                            <FaPlus/>
-                        </div>
+                        <Link to='/savingtype'>
+                            <div className="saving-add">
+                                <FaPlus/>
+                            </div>
+                        </Link>
                     </div>
                     <div className="saving-body">
                         <div className="total-saving">

@@ -5,6 +5,7 @@ import profileReducer from "./Profile/ProfileReducer";
 import transactionReducer from "./Transaction/TransactionReducer";
 import banknameReducer from "./Bank/BankReducer";
 import creditReducer from "./Credit/CreditReducer";
+import singleReducer from "./Transaction/SingleReducer";
 
 const rootReducer = combineReducers({
     login: authReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     bankname: banknameReducer,
     deposit: depositReducer,
     profile: profileReducer,
-    credit: creditReducer
+    credit: creditReducer,
+    single: singleReducer
 });
 
 export default rootReducer;
