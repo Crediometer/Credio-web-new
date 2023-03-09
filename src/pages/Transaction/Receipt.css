@@ -44,6 +44,12 @@
     justify-content: space-between;
     margin-top: 20px;
 }
+.amount-content{
+    width: 50%;
+}
+.amount-content-right p{
+    text-align: right;
+}
 .receipt-share{
     width: 100%;
     display: flex;

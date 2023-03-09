@@ -3,29 +3,62 @@ import { FaChevronLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Navbar from "../../Components/Navbar/Navbar";
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import { savingData } from "../../Redux/Saving/SavingAction";
+import { connect } from "react-redux";
 import './Savingtype.css';
-const Savingtype = () => {
+const Savingtype = ({savingData}) => {
     const [sidebar, setSidebar] = useState(false);
+    const [name, setName] = useState("");
+    const [amount, setAmount] = useState("");
+    const [savingsType, settime] = useState("");
+    // const [paymentType, setType] = useState("");
+    const [isChecked, setIsChecked] = useState(false);
+    const [savingState, setsavingState] = useState({});
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
-    const [isChecked, setIsChecked] = useState(false);
-    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1000);
+    useEffect(() => {
+        const handleResize = () => {
+        setIsSmallScreen(window.innerWidth < 1000);
+        };
 
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
-  };
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 1000);
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+        window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+    const handleName = (e) => {
+        const value = e.target.value;
+        console.log(value);
+        setName(value);
+        setsavingState({ ...savingState, ...{ name } });
     };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
+    const handleAmount = (e) => {
+        const value = e.target.value;
+        console.log(value);
+        setAmount(value);
+        setsavingState({ ...savingState, ...{ amount } });
     };
-  }, []);
+    const handletime = (e) => {
+        const value = e.target.value;
+        settime(value);
+        console.log(value);
+        setsavingState({ ...savingState, ...{savingsType} });
+    };
+    const handleCheckbox = (event) => {
+        setIsChecked(true);
+        const paymentType = event.target.value;
+        // setType(value);
+        console.log(paymentType);
+        setsavingState({ ...savingState, ...{paymentType} });
+    }
+    const handleSubmit = async(e) =>{
+        e.preventDefault();
+        console.log(savingState)
+        savingData(savingState)
+    }
     return ( 
         <div className="savingtype">
             <Navbar/>
@@ -57,9 +90,12 @@ const Savingtype = () => {
                                     <div className="flexible-saving-inner">
                                         <p className="saving-type-body">We’ll automatically debit your naria account at this hour for automated savings. The amount input in the savings amount. Cheers!</p> 
                                         <input
-                                            type="checkbox"
+                                            type="radio"
+                                            name="type"
                                             className="radio-check"
-                                            onChange={handleCheckboxChange}
+                                            // checked={isCheckedOne}
+                                            onClick={handleCheckbox}
+                                            value='0'
                                         ></input> 
                                     </div>
                                 </div>
@@ -68,9 +104,12 @@ const Savingtype = () => {
                                     <div className="flexible-saving-inner">
                                         <p className="saving-type-body">The amount to be deducted for a particular period of time locked. Early withdrawal of this savings before the maturity date attracts penalty of 5%</p> 
                                         <input
-                                            type="checkbox"
+                                            type="radio"
+                                            name="type"
                                             className="radio-check"
-                                            onChange={handleCheckboxChange}
+                                            // checked={isCheckedTwo}
+                                            onClick={handleCheckbox}
+                                            value="1"
                                         ></input> 
                                     </div>
                                 </div>
@@ -84,6 +123,8 @@ const Savingtype = () => {
                                             type="text"
                                             placeholder="Choose a name "
                                             className="savingfield"
+                                            onChange={handleName}
+                                            onBlur={handleName}
                                         ></input>
                                     </div>
                                     <div className="saving-type-form">
@@ -91,6 +132,8 @@ const Savingtype = () => {
                                             type="text"
                                             placeholder="Choose an amount to save"
                                             className="savingfield"
+                                            onChange={handleAmount}
+                                            onBlur={handleAmount}
                                         ></input>
                                     </div>
                                     <div className="saving-type-form">
@@ -98,12 +141,15 @@ const Savingtype = () => {
                                             type="text"
                                             placeholder="N 1000"
                                             className="savingfield"
+                                            value={savingsType}
+                                            onBlur={handletime}
+                                            onChange={handletime}
                                         >
                                             <optgroup>
-                                                <option>Daily</option>
-                                                <option>Weekly</option>
-                                                <option>Monthly</option>
-                                                <option>Anually</option>
+                                                <option value='0'>Daily</option>
+                                                <option value='1'>Weekly</option>
+                                                <option value='2'>Monthly</option>
+                                                <option value='3'>Anually</option>
                                             </optgroup>
                                         </select>
                                     </div>
@@ -111,7 +157,7 @@ const Savingtype = () => {
                                         <button className="saving-cancle">
                                             Cancle
                                         </button>
-                                        <button className="saving-continue">
+                                        <button className="saving-continue" onClick={handleSubmit}>
                                             Continue
                                         </button>
                                     </div>
@@ -124,5 +170,18 @@ const Savingtype = () => {
         </div>
     );
 }
- 
-export default Savingtype;
+const mapStoreToProps = (state) => {
+    return {
+      bankData: state.bankname,
+      nameData: state,
+    };
+};
+  
+const mapDispatchToProps = (dispatch) => {
+    return {
+        savingData: (savingState) => {
+            dispatch(savingData(savingState));
+        },
+    };
+}; 
+export default connect(mapStoreToProps, mapDispatchToProps)(Savingtype);

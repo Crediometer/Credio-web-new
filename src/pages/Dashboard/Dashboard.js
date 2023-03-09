@@ -25,6 +25,8 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
     const [sidebar, setSidebar] = useState(false);
     const [modal, setModal] = useState(false);
     const tenttransaction = transactionData.transaction.slice(0, 10);
+    const [spinner, setSpinner] = useState(true)
+    
     const toggleSidebar = () => {
         setSidebar((prevState) => !prevState);
     };
@@ -34,6 +36,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
     useEffect(() => {
         fetchTransaction()
         fetchProfile();
+        setSpinner(loading)
     }, []);
     return ( 
         <div className="dashboard body">
@@ -58,18 +61,23 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                         </div>
                     )}
                 </div> */}
-                  {loading ? (
-                        <div className="loader">
+                  {spinner ? (
+                        <div className="loader modal-background">
                             <MoonLoader
                             color={"#B11226"}
-                            loading={loading}
+                            loading={spinner}
                             size={50}
                             aria-label="Loading Spinner"
                             data-testid="loader"
                             />
                         </div>
                     ) : error ? (
-                        <p>{error}</p>
+                        <div className="modal-background" onClick={handleModal}>
+                        <div className="modal">
+                            <p className="modal-information">{error} please reload</p>  
+                            <button className="modal-close" onClick={handleModal}>OK</button>          
+                        </div>
+                    </div>
                     ) : (
                     <div className="body-inner">
                         <div className="dashboard-top">

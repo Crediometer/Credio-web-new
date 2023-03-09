@@ -40,7 +40,7 @@ const Transaction = ({transactionData, fetchTransaction}) => {
                         <div className="transaction-title">
                             <p className="transaction-text">Transactions History</p>
                             <div className="transactions">
-                            {transactionData && transactionData?.transaction && transactionData?.transaction.map((transaction, key)=>{
+                            {transactionData?.transaction.map((transaction)=>{
                                 return(
                                     <Link to={`/receipt/${transaction._id}`} key={transaction._id}>
                                         <div className="transaction-receipt">

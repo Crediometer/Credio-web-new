@@ -37,7 +37,7 @@ import {
         };
         console.log(savingState);
         const res = await axios.post(
-          "https://credio-merchant.herokuapp.com/api/v1/user/savings/new/initiate",
+          "https://credio-api.herokuapp.com/api/v1/user/savings/new/initiate",
           savingState,
           { headers: headers }
         );
