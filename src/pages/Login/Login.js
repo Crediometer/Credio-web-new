@@ -93,7 +93,7 @@ const Login = (props) => {
         Fingerprint2.get((components) => {
             const values = components.map(component => component.value);
             const deviceID = Fingerprint2.x64hash128(values.join(''), 31);
-            const deviceId = deviceID
+            const deviceId = "79b9a2980cb03df7cae8858f88d89212"
             console.log(deviceID);
             setFingerprint(deviceID);
             setLoginState({ ...loginState, ...{deviceId} });

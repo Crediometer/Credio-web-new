@@ -1,8 +1,11 @@
-import { PROFILE_FALIURE, PROFILE_REQUEST, PROFILE_SUCCESS } from "./ProfileType"
+import { PROFILE_FALIURE, PROFILE_REQUEST, PROFILE_SUCCESS, PEOPLE_SUCCESS, PEOPLE_ERROR, GET_CHAT} from "./ProfileType"
 
 const initialState ={
     loading: false,
+    loadingPeople: false,
+    errorPeople: '',
     profile: [],
+    people: {},
     error: ''
 }
 
@@ -19,6 +22,33 @@ const profileReducer = (state = initialState, action) => {
                 profile: action.payload,
                 error: ''
             }
+
+        case PEOPLE_SUCCESS:
+                var newPeople = {
+                    ...state.people,
+                    people: action.payload
+                };
+                return{
+                    ...state,
+                    loadingPeople: true,
+                    people: newPeople,
+                } 
+                
+        case PEOPLE_ERROR:
+                return{
+                    ...state,
+                    loadingPeople: false,
+                    errorPeople: action.payload,
+                }
+        //NOT SURE
+
+        case GET_CHAT:
+            return{
+                ...state,
+                loadingchat: true,
+                chat: action.payload
+            }
+            
         case PROFILE_FALIURE:
             return{
                 loading:false,
