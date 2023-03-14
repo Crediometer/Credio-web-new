@@ -1,4 +1,5 @@
 import './App.css';
+import io from 'socket.io-client'
 import Login from './pages/Login/Login';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Provider} from 'react-redux';
@@ -25,6 +26,9 @@ import Chatpage from './pages/Dialogues/Chatpage';
 import Beneficiary from './pages/Beneficiary/Beneficiary';
 import Receipts from './pages/Receipt/Receipts';
 import Savingtype from './pages/Saving/Savingtype';
+
+const socket = io.connect("https://credio-api.herokuapp.com/chat");
+
 function App() {
   return (
     <Router>
@@ -44,13 +48,13 @@ function App() {
             <Route path='/accountdetails' element={<Accountdetails/>}/>
             <Route path='/payment' element={<Payment/>}/>
             <Route path='/profile' element={<Profile/>}/>
-            <Route path='/dialogue' element={<Dialogues/>}/>
+            <Route path='/dialogue' element={<Dialogues socket={socket}/>}/>
             <Route path='/setting' element={<Setting/>}/>
             <Route path='/bulktransfer' element={<Bulktransfer/>}></Route>
             <Route path='/notification' element={<Notification/>}></Route>
             <Route path='/saving' element={<Saving/>}></Route>
             <Route path='/savingdetails' element={<Savingdetails/>}></Route>
-            <Route path='/chat' element={<Chatpage/>}></Route>
+            <Route path='/chat' element={<Chatpage socket={socket}/>}></Route>
             <Route path='/beneficiary' element={<Beneficiary/>}></Route>
             <Route path='/receipts' element={<Receipts/>}></Route>
             <Route path='/savingtype' element={<Savingtype/>}></Route>

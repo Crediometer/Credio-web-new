@@ -1,6 +1,9 @@
 // import { LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE } from "./LoginTypes" 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import io from 'socket.io-client'
+
+
 const AuthActionType = {
     // REGISTER_SUCCESS: "REGISTER_SUCCESS",
     // REGISTER_FAIL: "REGISTER_FAIL",
@@ -10,6 +13,33 @@ const AuthActionType = {
     LOGIN_SUCCESS: "LOGIN_SUCCESS",
     LOGIN_FAIL: "LOGIN_FAIL",
 };
+
+// define the action types
+const ON_PEOPLE = 'ON_PEOPLE';
+const REQUEST_STATE = 'REQUEST_STATE';
+const GET_CHAT = 'GET_CHAT';
+
+// define the action creators
+const onPeople = (data) => {
+  return {
+    type: ON_PEOPLE,
+    payload: data
+  }
+}
+
+const requestState = () => {
+  return {
+    type: REQUEST_STATE
+  }
+}
+
+const getChat = (jwt) => {
+  return {
+    type: GET_CHAT,
+    payload: jwt
+  }
+}
+
 
 const LoginAuthAction = (loginState, history, setErrorHandler) => {
     return async (dispatch) => {
@@ -21,6 +51,7 @@ const LoginAuthAction = (loginState, history, setErrorHandler) => {
         dispatch({ type: AuthActionType.LOGIN_SUCCESS, payload: data });
         if(res.status===200){
             history();
+
         }
       } catch (error) {
         if (error.response) {
