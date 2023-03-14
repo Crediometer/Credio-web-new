@@ -116,7 +116,7 @@ const Dashboard = ({ profileData,fetchProfile, transactionData, fetchTransaction
                                             <div className="account-progressbar">
                                                 <CircularProgressbar
                                                     value={score}
-                                                    text ={`${score}%`}
+                                                    text ={`${(score ?? 0).toFixed(2)}%`}
                                                     circleRatio={0.7}
                                                     styles={{
                                                         trail: {

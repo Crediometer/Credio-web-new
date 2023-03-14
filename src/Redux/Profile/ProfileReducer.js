@@ -24,14 +24,11 @@ const profileReducer = (state = initialState, action) => {
             }
 
         case PEOPLE_SUCCESS:
-                var newPeople = {
-                    ...state.people,
-                    people: action.payload
-                };
+            console.log("new People ---- ",action.payload ) ;
                 return{
                     ...state,
                     loadingPeople: true,
-                    people: newPeople,
+                    people: action.payload,
                 } 
                 
         case PEOPLE_ERROR:

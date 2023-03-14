@@ -4,10 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import io from 'socket.io-client'
 
 
-const socket = io.connect("https://credio-api.herokuapp.com/chat", {
-  transports: ["websocket"],
-  query: "phoneNumber=+2347049581457",
-});
 const AuthActionType = {
     // REGISTER_SUCCESS: "REGISTER_SUCCESS",
     // REGISTER_FAIL: "REGISTER_FAIL",
